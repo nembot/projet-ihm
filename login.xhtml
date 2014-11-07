@@ -7,6 +7,7 @@
 	<title>Rasende Roboter</title>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/style.css" rel="stylesheet" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -15,31 +16,41 @@
 	<script src="js/login.js"></script>
 	<script type="text/javascript">
 		$(function(){
-		      $("#menu").load("includes/menu.html"); 
-		    });
+			$("#menu").load("includes/menu.html"); 
+		});
 	</script>
 
 </head>
 <body onload="init()">
 	<div id="menu"></div>
-	<header>
-		<h1>Bienvenue sur Rasende Roboter, le jeu de robots en ligne</h1>
-	</header>
-	<section>
-		<nav>
-			<form method="post" action="" id="nouvellePartie">
-				<label for="idGame">Entrez un nom pour la nouvelle partie : </label><input type="text" name="idGame" id="idGame"/>
-				<label for="login">Entrez votre nom : </label><input type="text" name="login" id="login"/>
-				<input type="submit" class="btn btn-default" value="Nouveau jeu !" />
-			</form>
-			<ul id="lesParties"/>
-		</nav>
-		<section id="detailPartie">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<section>
+				<nav>
+					<form method="post" action="" id="nouvellePartie">
+						<label for="idGame">Choisir partie </label> <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
+						<br/>
+						<label for="idGame">Nouvelle partie </label><input type="text" name="idGame" id="idGame"/>
+						<br/>
+						<label for="login">Nom joueur </label><input type="text" name="login" id="login"/>
+						<br/>
+						<label for="login">Avatar </label><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
+						<br/>
+						<input type="submit" class="btn btn-default" value="Nouveau jeu !" />
+					</form>
+					<ul id="lesParties"/>
+				</nav>
+				<section id="detailPartie">
 
-		</section>
-	</section>
+				</section>
+			</section>
+		</div>
+	</div>	
 	<footer>
-		Mini-projet IHM de M2 MIAGE...
+		<blockquote>
+			<p>Si tu veux péter plus haut que ton cul, cite au moins Shakespeare.</p>
+			<footer>Inconnu.</footer>
+		</blockquote>
 	</footer>
 </body>
 </html>
