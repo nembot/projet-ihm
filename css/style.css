@@ -1,0 +1,33 @@
+	#header {
+		height:100px;
+		background-color: #2B87FF;
+		border-radius: 5px;
+	}
+	#header a{
+		float:right;
+	}
+	
+	#contenu {
+		height:550px;
+	}
+	#centre{
+		padding: 1%;
+	}
+	#texteAccueil{
+		width: 50%;
+		float: left;
+	}
+	#imgAccueil{
+		width: 30%;
+		float:right;
+		margin-right:-5%;
+		padding:10px;
+	}
+	#footer {		
+		height: 50px;	
+		width:100%;
+		text-align: center;
+		background-color: #2B87FF;
+		border-radius: 5px;
+	}
+	
