@@ -1,33 +1,32 @@
-<<<<<<< Updated upstream
-	#header {
-		height:100px;
-		background-color: #2B87FF;
-		border-radius: 5px;
-		text-align:center;
-	}
-	#contenu {
-		height:700px;
-		background-image(../img/background.jpg);
-	}
-	#infos_connexion{
-		padding: 1%;
-		width : 50%;
-		float : left;
-	}
-	#imgAccueil{
-		padding: 1%;
-		width : 50%;
-		float : right;
-	}
-	#footer {		
-		height: 50px;	
-		width:100%;
-		text-align: center;
-		background-color: #2B87FF;
-		border-radius: 5px;
-	}
-	
-=======
+
+#header {
+	height:100px;
+	background-color: #2B87FF;
+	border-radius: 5px;
+	text-align:center;
+}
+#contenu {
+	height:700px;
+	background-image(../img/background.jpg);
+}
+#infos_connexion{
+	padding: 1%;
+	width : 50%;
+	float : left;
+}
+#imgAccueil{
+	padding: 1%;
+	width : 50%;
+	float : right;
+}
+#footer {		
+	height: 50px;	
+	width:100%;
+	text-align: center;
+	background-color: #2B87FF;
+	border-radius: 5px;
+}
+
 .tableau {
 	border: 3px solid black;
 }
@@ -54,4 +53,3 @@ td.noBorderDroite {
 td.noBorderBas {
 	border-bottom: 1px solid white !important;
 }
->>>>>>> Stashed changes
