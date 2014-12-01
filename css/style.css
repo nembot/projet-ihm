@@ -3,26 +3,21 @@
 		height:100px;
 		background-color: #2B87FF;
 		border-radius: 5px;
+		text-align:center;
 	}
-	#header a{
-		float:right;
-	}
-	
 	#contenu {
-		height:550px;
+		height:700px;
+		background-image(../img/background.jpg);
 	}
-	#centre{
+	#infos_connexion{
 		padding: 1%;
-	}
-	#texteAccueil{
-		width: 50%;
-		float: left;
+		width : 50%;
+		float : left;
 	}
 	#imgAccueil{
-		width: 30%;
-		float:right;
-		margin-right:-5%;
-		padding:10px;
+		padding: 1%;
+		width : 50%;
+		float : right;
 	}
 	#footer {		
 		height: 50px;	
