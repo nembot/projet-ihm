@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 	#header {
 		height:100px;
 		background-color: #2B87FF;
@@ -31,3 +32,31 @@
 		border-radius: 5px;
 	}
 	
+=======
+.tableau {
+	border: 3px solid black;
+}
+.tableau th, .tableau td {
+	border: 1px solid black;
+	padding: 18px 18px;
+}
+
+.hautGras {
+	border-top: 3px solid red !important;
+}
+.basGras {
+	border-bottom: 3px solid red !important;
+}
+.gaucheGras {
+	border-left: 3px solid red !important;
+}
+.droiteGras {
+	border-right: 3px solid red !important;
+}
+td.noBorderDroite {
+	border-right: 1px solid white !important;
+}
+td.noBorderBas {
+	border-bottom: 1px solid white !important;
+}
+>>>>>>> Stashed changes
