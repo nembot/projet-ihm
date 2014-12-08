@@ -1,30 +1,55 @@
-
-#header {
-	height:100px;
-	background-color: #2B87FF;
-	border-radius: 5px;
+	body{
+	background-color:#f2f2f2;
+	width:100%;
+	}
+	#welcome{
+	width:800px;
 	text-align:center;
-}
-#contenu {
-	height:700px;
-	background-image(../img/background.jpg);
-}
-#infos_connexion{
-	padding: 1%;
-	width : 50%;
-	float : left;
-}
-#imgAccueil{
-	padding: 1%;
-	width : 50%;
-	float : right;
-}
+	margin: 20px auto;
+	}	
+	#info{
+	cursor:pointer;
+	}
+	#content{
+	border : 2px solid #ababab;
+	border-radius: 10px;
+	padding: 0 20px;
+	position:relative;
+	height:500px;
+	width:800px;
+	margin:20px auto;
+	overflow:hidden;
+	}
+	#content-left{
+	margin-top:20px;
+	float:left;
+	width:390px;
+	}
+	#content label{
+	width:200px;
+	}
+	 .avatar {
+	margin:10px;
+	}
+	#robot{
+	position:absolute;
+	right:80px;
+	bottom:-150px;
+	}
+	#help-text{
+	position:absolute;
+	bottom:-75px;
+	right:-40px;
+	color:red;
+	text-justify:justify;
+	opacity:0;
+	height:0px;
+	}
 #footer {		
 	height: 50px;	
 	width:100%;
 	text-align: center;
-	background-color: #2B87FF;
-	border-radius: 5px;
+	
 }
 
 .tableau {

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Rasende Roboter</title>
+	<title>Rasende Roboter</title>	
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+	<link href="css/style.css" rel="stylesheet" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -18,46 +17,93 @@
 		$(function(){
 			$("#menu").load("includes/menu.html"); 
 		});
+		var shown=false;
+		function info()
+		{
+		if (shown) hide_info(); else show_info();
+		}
+		function show_info()
+		{
+		$("#content-right").hide();
+  $("#robot").animate({
+    bottom:'120px',
+  },"600");
+    $("#robot").animate({
+    bottom:'90px',
+  },"400");
+    $("#robot").animate({
+    bottom:'110px',
+  },"400");
+    $("#robot").animate({
+    bottom:'100px',
+  },"400");
+    
+	$("#help-text").animate({
+    opacity:'1',
+	height:"180px",
+  },"slow");
+  shown=true;
+} 
+		function hide_info()
+		{
+		
+  $("#robot").animate({
+    bottom:'120px',
+  });
+    $("#robot").animate({
+    bottom:'-150px',
+  });
+  	$("#help-text").animate({
+    opacity:'0',
+	height:"0px",
+  },"slow");
+  shown=false;
+  $("#content-right").show();
+} 
 	</script>
 
 </head>
-<body onload="init()">
-	<div id="header">
-		<h1> Robot ricochet </h1>
-	</div>
-	<div id="contenu">
-		<div id="infos_connexion">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<section>
-						<nav>
-							<form method="post" action="" id="nouvellePartie">
-								<label for="idGame">Choisir partie </label> <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
-								<br/>
-								<label for="idGame">Nouvelle partie </label><input type="text" name="idGame" id="idGame"/>
-								<br/>
-								<label for="login">Nom joueur </label><input type="text" name="login" id="login"/>
-								<br/>
-								<label for="login">Avatar </label><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
-								<br/>
-								<input type="submit" class="btn btn-default" value="Nouveau jeu !" />
-							</form>
-							<ul id="lesParties"/>
-						</nav>
-						<section id="detailPartie">
 
-						</section>
-					</section>
-				</div>
-			</div>	
-		</div>
-		<div id="imgAccueil">
-			<img src="img/accueil.png" alt="Robot" height="60%" width="60%"/>						
-		</div>
-	</div>
-	<div id="footer">
-		<p>Droits réservés</p>
-	</div>
+<body onload="init()">
+<header>
+<nav  class="text-centers">
+<h3 id="welcome"> Bienvenus sur la platforme de jeu Robot Ricochet <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>   
+	<div id="menu"></div>
+	</nav>
+</header>
+			<section id="content">
+					<form method="post" action="" id="nouvellePartie">
+						<div id="content-left">
+						<label for="idGame">Rejoindre une partie</label> <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
+						<br/> <br/>
+						<label for="idGame">Nouvelle partie </label><input type="text" name="idGame" id="idGame"/>
+						<br/> <br/>
+						<label for="login">Nom joueur </label><input type="text" name="login" id="login"/>
+						<label for="login">Avatar </label> <img  class="avatar img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;"/>
+						<br/><br/>
+						<div style="width:120px; margin:0 auto;">
+						<input type="submit" class="btn btn-primary" value="Commencer !" />
+						</div>
+						</div>
+						<div class="clear" >&nbsp;</div>
+						<div id="robot">
+						<img alt='robot' src="img/robot.png" />
+						<div id="help-text"> <img  src="img/help_text.png"  /> </div>
+						</div>
+						
+					</form>
+					<ul id="lesParties">
+					</ul>
+				<section id="detailPartie">
+
+				</section>
+			</section>
+	<footer id ="footer">
+		
+		<small>	Tout droits réservés &copy;</small>
+		
+	</footer>
+	
 </body>
 </html>
 
