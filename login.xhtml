@@ -3,25 +3,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Rasende Roboter</title>	
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<title>Rasende Roboter</title>
 	<link href="css/style.css" rel="stylesheet" />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
 	<!-- script src="js/socket.io/socket.io.js"></script>
 	<script src="js/login.js"></script -->
 	<script type="text/javascript">
-		$(function(){
-			$("#menu").load("includes/menu.html"); 
-		});
-		
 		$( document ).ready(function() {
 			$('.carousel').carousel('pause');
 			});
-		
+
 		var shown=false;
 		function info()
 		{
@@ -41,16 +31,16 @@
     $("#robot").animate({
     bottom:'150px',
   },"400");
-    
+
 	$("#help-text").animate({
     opacity:'1',
 	height:"200px",
   },"slow");
   shown=true;
-} 
+}
 		function hide_info()
 		{
-		
+
   $("#robot").animate({
     bottom:'170px',
   });
@@ -62,10 +52,7 @@
 	height:"0px",
   },"slow");
   shown=false;
-} 
-
-
-
+}
 	</script>
 
 </head>
@@ -73,7 +60,7 @@
 <body onload="">
 <header>
 <nav  class="text-centers">
-<h3 id="welcome"> Bienvenus sur la platforme de jeu Robot Ricochet <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>   
+<h3 id="welcome"> Bienvenus sur la platforme de jeu Robot Ricochet <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>
 	<div id="menu"></div>
 	</nav>
 </header>
@@ -99,31 +86,31 @@
 						  <div class="carousel-inner" role="listbox">
 							<div class="item active">
 							  <img src="img/avatars/avatar1.png" alt="avatar 1" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar2.png" alt="avatar 2" />
-							</div>                
-							<div class="item">   
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar3.png" alt="avatar 3" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar4.png" alt="avatar 4" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar5.png" alt="avatar 5" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar6.png" alt="avatar 6" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar7.png" alt="avatar 7" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar8.png" alt="avatar 8" />
-							</div>                
-							<div class="item">    
+							</div>
+							<div class="item">
 							  <img src="img/avatars/avatar9.png" alt="avatar 9" />
-							</div>							
+							</div>
 						  </div>
 
 						  <!-- Controls -->
@@ -136,14 +123,14 @@
 							<span class="sr-only">Next</span>
 						  </a>
 						  <!-- SELECTED Avatar ID -->
-						  <script type="text/javascript">						  
+						  <script type="text/javascript">
 						  $('#carousel').on('slide.bs.carousel', function (event) {
 							  	 var dir=event.direction;
 								 var inp=document.getElementById("id_avatar");
 								  if (dir=="left") inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
 								  if (dir=="right")  inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
 							})
-							
+
 							function getAvatar(){
 							return $("#id_avatar").val();
 							}
@@ -174,7 +161,7 @@
 								</p>
 							</div>
 						</div>
-						<img id="bg" alt='background' src="img/bg.png" />						
+						<img id="bg" alt='background' src="img/bg.png" />
 					</form>
 					<ul id="lesParties">
 					</ul>
@@ -183,11 +170,10 @@
 			</section>
 
 	<footer id ="footer">
-		
+
 		<small>	Tout droits réservés &copy;</small>
-		
+
 	</footer>
-	
+
 </body>
 </html>
-
