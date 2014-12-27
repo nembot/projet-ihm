@@ -1,16 +1,16 @@
-	body{
+body{
 	background-color:#f2f2f2;
 	width:100%;
-	}
-	#welcome{
+}
+#welcome{
 	width:800px;
 	text-align:center;
 	margin: 20px auto;
-	}	
-	#info{
+}	
+#info{
 	cursor:pointer;
-	}
-	#content{
+}
+#content{
 	border : 2px solid #ababab;
 	border-radius: 10px;
 	padding: 0 20px;
@@ -19,42 +19,42 @@
 	width:800px;
 	margin:20px auto;
 	overflow:hidden;
-	}
-	#content-left{
+}
+#content-left{
 	margin-top:20px;
 	float:left;
 	width:390px;
-	}
-	#content label{
+}
+#content label{
 	width:200px;
-	}
-	 .avatar {
+}
+.avatar {
 	margin:10px;
-	}
-	#robot{
+}
+#robot{
 	position:absolute;
 	right:80px;
 	bottom:-150px;
 	z-index:2;
-	}
-	
-	#bg{
+}
+
+#bg{
 	position:absolute;
 	right:0px;
 	top:0px;
 	opacity:0.2;
 	z-index:0;
-	}
-	#help-text-img{
+}
+#help-text-img{
 	position:absolute;
 	bottom:-50px;
 	right:-40px;
 	opacity:0;
 	height:0px;
 	display:none;
-	}
-	
-	#help-text{
+}
+
+#help-text{
 	position:absolute;
 	bottom:-100px;
 	right:-65px;
@@ -69,40 +69,40 @@
 	padding:8px;
 	opacity:0;
 	height:0px;
-	}
-	
-	.blue {
+}
+
+.blue {
 	color:#428bca !important;
-	}
-	
-	#carousel{
+}
+
+#carousel{
 	width:170px;
 	float:right;
 	margin-right:20px;
-	}
-	
-	.carousel-inner .item img{
+}
+
+.carousel-inner .item img{
 	width:auto !important;
 	height:140px !important;
 	margin:0 auto;
-	}
-	
-	.carousel-inner .item{
+}
+
+.carousel-inner .item{
 	text-align:center;
-	}
-	
-	.carousel-control{
+}
+
+.carousel-control{
 	background-image:none !important;
-	}
+}
 #footer {		
 	height: 50px;	
 	width:100%;
 	text-align: center;
-	
+
 }
 
 .clear{
-clear:both;
+	clear:both;
 }
 
 .tableau {
