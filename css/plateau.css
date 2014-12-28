@@ -1,13 +1,20 @@
 table {
 	border-collapse: collapse;
-	background-color: #e1e1e1;
+	background-color: #bdbdbd;
 }
 .tableau {
 	border: 3px solid black;
 }
 .tableau th, .tableau td {
 	border: 1px solid black;
-	padding: 18px 18px;
+	width: 40px;
+	height: 40px;
+}
+
+.robot {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
 }
 
 .hautGras {
@@ -23,8 +30,8 @@ table {
 	border-right: 3px solid red !important;
 }
 td.noBorderDroite {
-	border-right: 1px solid white !important;
+	border-right: 1px solid #bdbdbd !important;
 }
 td.noBorderBas {
-	border-bottom: 1px solid white !important;
+	border-bottom: 1px solid #bdbdbd !important;
 }
