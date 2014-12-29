@@ -11,52 +11,6 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="js/login.js"></script>
-	<script type="text/javascript">
-		$( document ).ready(function() {
-			$('.carousel').carousel('pause');
-		});
-
-		var shown=false;
-		function info()
-		{
-			if (shown) hide_info(); else show_info();
-		}
-		function show_info()
-		{
-			$("#robot").animate({
-			bottom:'170px',
-			},"600");
-			$("#robot").animate({
-			bottom:'140px',
-			},"400");
-			$("#robot").animate({
-			bottom:'160px',
-			},"400");
-			$("#robot").animate({
-			bottom:'150px',
-			},"400");
-
-			$("#help-text").animate({
-			opacity:'1',
-			height:"200px",
-			},"slow");
-			shown=true;
-		}
-		function hide_info()
-		{
-			$("#robot").animate({
-				bottom:'170px',
-			});
-			$("#robot").animate({
-				bottom:'-150px',
-			});
-			$("#help-text").animate({
-				opacity:'0',
-				height:"0px",
-			},"slow");
-			shown=false;
-		}
-	</script>
 </head>
 <body onload="init()">
 	<header>
@@ -126,19 +80,6 @@
 						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 					</a>
-					<!-- SELECTED Avatar ID -->
-					<script type="text/javascript">
-						$('#carousel').on('slide.bs.carousel', function (event) {
-							var dir=event.direction;
-							var inp=document.getElementById("id_avatar");
-							if (dir=="left") inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
-							if (dir=="right")  inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
-						})
-
-						function getAvatar(){
-							return $("#id_avatar").val();
-						}
-					</script>
 					<input id="id_avatar" name="id_avatar" type="hidden" value="1"  />
 				</div>
 				<div class="clear" >&nbsp;</div>
@@ -168,8 +109,6 @@
 			</div>
 			<img id="bg" alt='background' src="img/bg.png" />
 		</form>
-			<section id="detailPartie">
-			</section>
 		</section>
 	<footer id ="footer">
 		<small>	Tout droits réservés &copy;</small>
