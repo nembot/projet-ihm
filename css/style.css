@@ -114,22 +114,28 @@ body{
 }
 
 .hautGras {
-	border-top: 3px solid red !important;
+	border-top: 3px solid !important;
 }
 .basGras {
-	border-bottom: 3px solid red !important;
+	border-bottom: 3px solid !important;
 }
 .gaucheGras {
-	border-left: 3px solid red !important;
+	border-left: 3px solid !important;
 }
 .droiteGras {
-	border-right: 3px solid red !important;
+	border-right: 3px solid !important;
 }
 td.noBorderDroite {
 	border-right: 1px solid white !important;
 }
 td.noBorderBas {
 	border-bottom: 1px solid white !important;
+}
+td.noBorderHaut {
+	border-top: 1px solid white !important;
+}
+td.noBorderGauche {
+	border-left: 1px solid white !important;
 }
 
 

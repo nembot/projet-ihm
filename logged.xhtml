@@ -7,8 +7,29 @@
 		<title>Rasende Roboter</title>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="js/logged.js"></script>
+		<script type="text/javascript" src="js/afficherTableau.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+		<style type="text/css">
+			#tablePartie {
+			  width: 700px ;
+			  margin-left: auto ;
+			  margin-right: auto ;
+			}
+		</style>
+		<script type="text/javascript">
+			function initPage() {
+				init();
+				showGame();
+			}
+
+		</script>
+
 	</head>
-	<body onload="init()">
+
+
+	<body onload="initPage();">
 		<header>
 			<h1>Partie __IDGAME__ __STATE__</h1>
 			<p>Vous êtes connecté en tant que __LOGIN__</p>
@@ -20,12 +41,16 @@
 				<ul id="lesParticipants" />
 			</nav>
 			<section id="partie">
+
+				<div id="tablePartie">
+
+				</div>
 				<!-- Représentation tableau du jeu -->
 
 			</section>
 		</section>
 		<footer>
-			Mini-projet IHM de M2 MIAGE...
+			tous droits réservés
 		</footer>
 	</body>
 </html>
