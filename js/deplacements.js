@@ -1,3 +1,4 @@
+var currentSolution = [];
 
 var currentRobotColor;
 var currentRobotCellId;
@@ -22,7 +23,6 @@ var currentRobotColumn;
  			currentRobotLine = line;
  			currentRobotColumn = column;
  			marquerRobot(id, currentRobotColor);
-
  		} 
  	});
  }
@@ -226,12 +226,23 @@ var currentRobotColumn;
  function demarquerRobot(id) {
  	$("#"+id).css('background-color', 'white');
  }
-
+ 
  function sendProposition(color, l, c) {
  	console.log('l : '+l+' c:'+c);
 
- 	$('#proposition').html('Transfert du robot '+color+' à ligne '+l+' et colonne '+c);
-
+ 	//$('#proposition').html('Transfert du robot '+color+' à ligne '+l+' et colonne '+c);
+ 	
+ 	var propo = currentSolution;
+ 	propo.push( {
+						command : 'select'
+						, robot: color
+					}, {
+						command:'move'
+						, line : l
+						, column : c
+					});
+ 	$('#proposition').html(JSON.stringify(propo));
+ 	
 	XHR("POST" ,"/proposition"
  		, { onload : function() {
  			console.log(this);
@@ -249,20 +260,14 @@ var currentRobotColumn;
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);	
 		    	marquerRobot(currentRobotCellId, currentRobotColor);
+		    	currentSolution = propo;
+
  			//}	
  		}
  			,variables: {
 				login:user 
 				, idGame:idG
-				, proposition : JSON.stringify([
-					{
-						command : 'select'
-						, robot: color
-					}, {
-						command:'move'
-						, line : l
-						, column : c
-					}])
+				, proposition :propo
  			}
  	});
  	

@@ -1,67 +1,83 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-	<head>
-		<title>Rasende Roboter</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="js/logged.js"></script>
-		<script type="text/javascript" src="js/afficherTableau.js"></script>
-		<script type="text/javascript" src="js/deplacements.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Rasende Roboter</title>
 
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/logged.js"></script>
+	<script type="text/javascript" src="js/afficherTableau.js"></script>
+	<script type="text/javascript" src="js/deplacements.js"></script>
+	<script type="text/javascript" src="js/informations.js"></script>
 
-		<style type="text/css">
-			#tablePartie {
-			  width: 700px ;
-			  margin-left: auto ;
-			  margin-right: auto ;
-			}
+	<link href="css/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script type="text/javascript">
+	function initPage() {
+		init();
+		showGame();
+	}
 
-		</style>
-		<script type="text/javascript">
-			function initPage() {
-				init();
-				showGame();
-			}
+	</script>
+</head>
 
-		</script>
+<body onload="initPage();">
+	<header>
+		
+		<h1>Partie __IDGAME__ __STATE__</h1>
+		<p>Vous êtes connecté en tant que __LOGIN__</p>
+		<input id="login" type="hidden" value="__LOGIN__"/>
+		<input id="idGame" type="hidden" value="__IDGAME__"/>
+		<nav>
+			<ul id="lesParticipants" />
+		</nav>
+		<nav  class="text-centers">
+			<h3 id="welcome"> Instructions <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>
+			<div id="menu"></div>
+		</nav>
 
-	</head>
-
-
-	<body onload="initPage();">
-		<header>
-			<h1>Partie __IDGAME__ __STATE__</h1>
-			<p>Vous êtes connecté en tant que __LOGIN__</p>
-			<input id="login" type="hidden" value="__LOGIN__"/>
-			<input id="idGame" type="hidden" value="__IDGAME__"/>
-
-			
-		</header>
-		<section>
-			<nav>
-				<ul id="lesParticipants" />
-			</nav>
-			<div style="border:1px solid black; background-color : whitesmoke;">
-				<span style="font-weight:bold;"> Déplacement souhaité : </span><p id="proposition"></p>
-				<span style="font-weight:bold;"> Réponse serveur : </span><p id="serverresponse"></p>
-			</div>
-			<section id="partie">
-
-				<div id="tablePartie">
-
+	</header>
+	<section id="content-table">
+		<form method="post" action="" id="nouvellePartie">
+			<div id="content-left">
+				<div style="border:1px solid black; background-color : whitesmoke;">
+					<span style="font-weight:bold;"> Déplacement souhaité : </span><p id="proposition"></p>
+					<span style="font-weight:bold;"> Réponse serveur : </span><p id="serverresponse"></p>
 				</div>
-				<!-- Représentation tableau du jeu -->
-
-			</section>
-		</section>
-		<footer>
-
-			tous droits réservés
-		</footer>
-	</body>
+				<section id="partie">
+					<div id="tablePartie">
+					</div>
+					<!-- Représentation tableau du jeu -->
+				</section>
+				<div class="clear" >&nbsp;</div>
+				<div id="robot">
+					<img alt='robot' src="img/robot.png" />
+					<div id="help-text-img">
+						<img src="img/help_text.png" />
+					</div>
+					<div id="help-text" >
+						<p>
+							<span class='blue'> Robot Ricochet </span> est un jeu composé d’un plateau, de tuiles
+							représentant chacune des cases du plateau, et de
+							pions appelés « robots ».<br/>
+							La partie est décomposée en tours de jeu, un tour consiste
+							à déplacer les robots sur un plateau afin d’en amener sur
+							l’une des case du plateau.<br/>
+							Les robots de déplacent en ligne droite et avancent
+							toujours jusqu’au premier mur qu’ils rencontrent.<br/><br/>
+							<span style='text-align:center'> Vous pouvez y jouer seul, mais aussi avec vos amis…</span>
+						</p>
+					</div>
+				</div>
+				<img id="bg" alt='background' src="img/bg.png" />
+			</div>
+		</form>
+	</section>
+	<footer id ="footer">
+		<small>	Tout droits réservés &copy;</small>
+	</footer>
+</body>
 </html>
