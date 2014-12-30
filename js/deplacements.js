@@ -22,7 +22,7 @@ var currentRobotColumn;
  			currentRobotCellId = id;
  			currentRobotLine = line;
  			currentRobotColumn = column;
- 			marquerRobot(id, currentRobotColor);
+ 			//marquerRobot(id, currentRobotColor);
  		}
  	});
  }
@@ -233,9 +233,10 @@ var currentRobotColumn;
 	XHR("POST" ,"/proposition"
  		, { onload : function() {
  			var response = JSON.parse(this.response);
- 			console.log(response);
- 			$('#serverresponse').html(this.response);
  			if(response.state != 'INVALID_MOVE' && response.state != 'INVALID_SELECT') {
+ 				if(response.state == 'SUCCESS') {
+ 					ohSnap('Partie terminée, félicitations !', 'green');
+		    	}
  				resetCells();
 	 			demarquerRobot(currentRobotCellId);
 	 			currentRobotCellId = "i"+l+"_j"+c;
@@ -244,8 +245,16 @@ var currentRobotColumn;
 		    	updateRobotsPositions();
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);
-		    	marquerRobot(currentRobotCellId, currentRobotColor);
-			} else {
+		    	//marquerRobot(currentRobotCellId, currentRobotColor);
+		    	var logString = '<p style="color : '+color+';">'+color+' vers l: '+l+' c : '+c+'</p>'
+		    	$('#logText').prepend(logString);
+
+		    } else {
+		    	if(response.state == 'INVALID_MOVE')
+		    			ohSnap('Déplacement invalide', 'red');
+		    	if(response.state == 'INVALID_SELECT')
+		    			ohSnap('Veuillez sélectionner un autre robot', 'red');
+		    						
 				currentSolution.pop();
 				currentSolution.pop();
 			}
