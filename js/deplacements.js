@@ -10,7 +10,7 @@ var currentRobotColumn;
  	//console.log('adding cells listeners');
  	$("#tableJeu").click(function(e) {
  		var id = $(e.target).closest('td').attr('id');
- 		
+
  		var robotCoordinates = getLineAndColumnFromId(id);
  		var line = robotCoordinates.line;
  		var column = robotCoordinates.column;
@@ -23,15 +23,15 @@ var currentRobotColumn;
  			currentRobotLine = line;
  			currentRobotColumn = column;
  			marquerRobot(id, currentRobotColor);
- 		} 
+ 		}
  	});
  }
-  
+
  function resetCells() {
  	$("#"+currentRobotCellId).css('background-color', 'white');
- 	$("#"+currentRobotCellId).empty();	
+ 	$("#"+currentRobotCellId).empty();
  }
- 
+
  function initKeyboard() {
  	$('html').bind('keydown', function(e){
  		if(e.keyCode == 37 || e.keyCode == 38 ||e.keyCode == 39 ||e.keyCode == 40)
@@ -76,7 +76,7 @@ var currentRobotColumn;
  	var column = parseInt(colStr.replace("j",""));
  	coordinates.line = line;
  	coordinates.column = column;
- 	return coordinates;	
+ 	return coordinates;
  }
 
   function moveRobot(cell) {
@@ -85,7 +85,7 @@ var currentRobotColumn;
   		cell.append(img);
   }
  /*
-	Dont touch : 
+	Dont touch :
 
 	Calcule quelles sont les cases interdites lors du déplacement
  */
@@ -102,7 +102,7 @@ var currentRobotColumn;
 
  function getObstacles() {
  	var obstacles = {
- 		h:-1, 
+ 		h:-1,
  		b:16,
  		g:-1,
  		d:16
@@ -113,19 +113,19 @@ var currentRobotColumn;
  			if(i < currentRobotLine && obstacles.h < i) { // obstacle haut
  				if(cell.hasClass("hautGras")) {
  					obstacles.h = i-1;
- 				}  
+ 				}
  				if(cell.hasClass("basGras")) {
  					obstacles.h = i;
  				}
  				if(hasRobot(cell)) {
- 					obstacles.h = i;	
+ 					obstacles.h = i;
  				}
- 			} 
+ 			}
 
  			if(i > currentRobotLine && obstacles.b > i ) { // obstacle bas
  				if(cell.hasClass("hautGras")) {
  					obstacles.b = i;
- 				} 
+ 				}
  				if(cell.hasClass("basGras")) {
  					obstacles.b = i+1;
  				}
@@ -137,21 +137,21 @@ var currentRobotColumn;
  			if(i==currentRobotLine) {
  				if(cell.hasClass("hautGras")) {
  					obstacles.h = i-1;
- 				} 
+ 				}
  				if(cell.hasClass("basGras")) {
  					obstacles.b = i+1;
  				}
  			}
 
  		}
- 	
+
 
  	for(var j=0; j<board.length; j++) { // horizontal
  		var cell = $("#i"+currentRobotLine+"_j"+j);
  			if(j < currentRobotColumn && obstacles.g < j) { // obstacle gauche
  				if(cell.hasClass("gaucheGras")) {
  					obstacles.g = j-1;
- 				} 
+ 				}
  				if(cell.hasClass("droiteGras")) {
  					obstacles.g = j;
  				}
@@ -159,12 +159,12 @@ var currentRobotColumn;
  				if(hasRobot(cell)) {
  					obstacles.g = j;
  				}
- 			} 
+ 			}
 
  			if(j > currentRobotColumn && obstacles.d > j ) {
  				if(cell.hasClass("gaucheGras")) {
  					obstacles.d = j;
- 				} 
+ 				}
  				if(cell.hasClass("droiteGras")) {
  					obstacles.d = j+1;
  				}
@@ -175,18 +175,18 @@ var currentRobotColumn;
  			if(j==currentRobotColumn) {
  				if(cell.hasClass("gaucheGras")) {
  					obstacles.g = j-1;
- 				} 
+ 				}
  				if(cell.hasClass("droiteGras")) {
  					obstacles.d = j+1;
  				}
 
  			}
  		}
- 	
+
 
  	return obstacles;
  }
- 
+
  function getNextPosition(direction) {
 
  	var obstacles = getObstacles();
@@ -214,24 +214,24 @@ var currentRobotColumn;
  		//console.log(game.robots[i].column);
  		if(game.robots[i].line == l && game.robots[i].column == c) {
  			return game.robots[i].color;
- 		} 	
+ 		}
  	}
  	return "";
  }
-  
+
  function marquerRobot(id, color) {
  	$("#"+id).css('background-color', color);
- }	
- 
+ }
+
  function demarquerRobot(id) {
  	$("#"+id).css('background-color', 'white');
  }
- 
+
  function sendProposition(color, l, c) {
  	console.log('l : '+l+' c:'+c);
 
  	//$('#proposition').html('Transfert du robot '+color+' à ligne '+l+' et colonne '+c);
- 	
+
  	var propo = currentSolution;
  	propo.push( {
 						command : 'select'
@@ -242,7 +242,7 @@ var currentRobotColumn;
 						, column : c
 					});
  	$('#proposition').html(JSON.stringify(propo));
- 	
+
 	XHR("POST" ,"/proposition"
  		, { onload : function() {
  			console.log(this);
@@ -253,26 +253,25 @@ var currentRobotColumn;
  			//if(response.state != 'INVALID_MOVE') {
  				resetCells();
 	 			demarquerRobot(currentRobotCellId);
-	 			currentRobotCellId = "i"+l+"_j"+c; 
+	 			currentRobotCellId = "i"+l+"_j"+c;
 		    	currentRobotLine = l;
 		    	currentRobotColumn = c;
 		    	updateRobotsPositions();
 		    	var nextCell = $('#i'+l+'_j'+c);
-		    	moveRobot(nextCell);	
+		    	moveRobot(nextCell);
 		    	marquerRobot(currentRobotCellId, currentRobotColor);
 		    	currentSolution = propo;
 
- 			//}	
+ 			//}
  		}
  			,variables: {
-				login:user 
+				login:user
 				, idGame:idG
-				, proposition :propo
+				, proposition: JSON.stringify(propo)
  			}
  	});
- 	
- }	
- 	
+
+ }
 
 
 
@@ -282,12 +281,13 @@ var currentRobotColumn;
 
 
 
-  
+
+
   // retourne id de cellule du robot actuel
 
   function getRobotActuelCellId() {
   	var cellId; // id de la case du robot actuel
- 		
+
   	if(robotActuel) {
   		var colorRobot = game.robots[robotActuel].color; // couleur du robot actuel
  		if(colorRobot == 'blue') {
@@ -299,15 +299,15 @@ var currentRobotColumn;
  		} else if (colorRobot == 'yellow') {
  			cellId = "i"+lj+"_j"+cj;
  		}
-  		
+
   	}
-  	return cellId;	
+  	return cellId;
   }
 
 
  function addKeyboardEvent() {
  	if(robotActuel) {
- 		// si la case du robot actuel est sélectionnée : 
+ 		// si la case du robot actuel est sélectionnée :
  		$( "#"+getRobotActuelCellId()).keydown(function( event ) {
  			//console.log(event);
  		});
@@ -335,7 +335,7 @@ var currentRobotColumn;
 
  /*
  	Ajout des listeners de clavier sur les robots
- */ 	
+ */
  function initDeplacements() {
  	addCellsListener();
  	initKeyboard();
@@ -348,7 +348,7 @@ var currentRobotColumn;
   $("#robot_yellow").click(function(){
         var image = $("#robot_yellow");
         image.remove();
-   		$("#i0_j5").append(image); 
+   		$("#i0_j5").append(image);
    });
   */
  }
