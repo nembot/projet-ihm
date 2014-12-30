@@ -12,21 +12,22 @@
 	<script type="text/javascript" src="js/afficherTableau.js"></script>
 	<script type="text/javascript" src="js/deplacements.js"></script>
 	<script type="text/javascript" src="js/informations.js"></script>
+	<script src="js/ohsnap.js"></script>
 
-	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/css_logged.css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/alertes.css"/>
+	
 	<script type="text/javascript">
-	function initPage() {
-		init();
-		showGame();
-	}
-
+		function initPage() {
+			init();
+			showGame();
+		}
 	</script>
 </head>
 
 <body onload="initPage();">
 	<header>
-		
 		<h1>Partie __IDGAME__ __STATE__</h1>
 		<p>Vous êtes connecté en tant que __LOGIN__</p>
 		<input id="login" type="hidden" value="__LOGIN__"/>
@@ -40,18 +41,25 @@
 		</nav>
 
 	</header>
-	<section id="content-table">
+	<div id="content-table">
 		<form method="post" action="" id="nouvellePartie">
+			<div id="content-right" style="float:right;">
+				<div id="ohsnap" style="float:right;"></div>
+			</div>
+			
 			<div id="content-left">
-				<!--<div style="border:1px solid black; background-color : whitesmoke;">
-					 <span style="font-weight:bold;"> Déplacement souhaité : </span><p id="proposition"></p>
-					<span style="font-weight:bold;"> Réponse serveur : </span><p id="serverresponse"></p>
-				</div>-->
-				<section id="partie">
+				<div id="log" style="float:left;width:300px;background-color:whitesmoke;height:100%;">
+					Mouvements : 
+					<span id="logText">
+							
+					</span>
+				</div>
+				<div id="partie">
+					
 					<div id="tablePartie">
 					</div>
 					<!-- Représentation tableau du jeu -->
-				</section>
+				</div>
 				<div class="clear" >&nbsp;</div>
 				<div id="robot">
 					<img alt='robot' src="img/robot.png" />
@@ -75,7 +83,7 @@
 				<img id="bg" alt='background' src="img/bg.png" />
 			</div>
 		</form>
-	</section>
+	</div>
 	<footer id ="footer">
 		<small>	Tout droits réservés &copy;</small>
 	</footer>
