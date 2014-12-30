@@ -17,7 +17,7 @@ var partie;
     user = document.getElementById('login').value;
     XHR( "GET"
        , "/"+idG
-       ,   { 
+       ,   {
             onload : function() {
               game = JSON.parse(this.response);
               board = game.board;
@@ -26,7 +26,7 @@ var partie;
               console.log(game);
 
               if(board != null && robots != null && target != null)
-                dessinerTableau();  
+                dessinerTableau();
                 initDeplacements();
             }
      });
@@ -35,14 +35,14 @@ var partie;
 /*
 XHR( "POST"
      , "/"
-     ,   { 
+     ,   {
           onload : function() {
-            console.log(this.response); 
+            console.log(this.response);
           }
    });
 */
 
-// connection au socket : 
+// connection au socket :
 /*
 socket = io.connect();
 socket.on('participants', function(data) {
@@ -50,13 +50,13 @@ socket.on('participants', function(data) {
      var ul = document.getElementById('lesParticipants');
      ul.innerHTML='';
       for(p in data.participants) {
-       var li = document.createElement('li'); 
+       var li = document.createElement('li');
        ul.appendChild( li );
        li.appendChild( document.createTextNode( data.participants[p] ) );
       }
     });
 */
-// fonction qui permet de dessiner le tableau  : 
+// fonction qui permet de dessiner le tableau  :
 
 
 
@@ -69,7 +69,7 @@ function dessinerTableau() {
 }
 
 
-// dessigner grille : 
+// dessigner grille :
 
 function dessinerGrille() {
   partie = document.getElementById('tablePartie');
@@ -81,7 +81,7 @@ function dessinerGrille() {
     tbl.style.tableLayout="fixed";
     tbl.setAttribute('border','1');
     var tbdy=document.createElement('tbody');
-    
+
     for (var i = 0; i < board.length; i++) {
         var tr=document.createElement('tr');
         for(var j=0; j < board[i].length;j++){
@@ -117,10 +117,10 @@ function dessinerGrille() {
 
             td.appendChild(document.createTextNode('.'));
             td.className  = cellCls;
-            td.id = cellId; 
+            td.id = cellId;
             tr.appendChild(td)
         }
-        tbdy.appendChild(tr);    
+        tbdy.appendChild(tr);
     };
 
     tbl.appendChild(tbdy);
@@ -130,18 +130,32 @@ function dessinerGrille() {
   }
 }
 
-// dessiner obstacles:  
+// dessiner obstacles:
 
+function getTargetImg(color) {
+  var imgTarget = document.createElement('img');
+  imgTarget.setAttribute("id", "target_"+color+".png");
+  imgTarget.src = "/img/target_"+color+".png";
+  imgTarget.width = "15";
+  imgTarget.height = "15";
+
+  return imgTarget;
+}
 function dessinerCible() {
+    //console.log(target);
     if(target) {
       var l = target.l;
       var c = target.c;
       var t = target.t;
-
       var cell = document.getElementById('i'+l+'_j'+c);
+
       if(cell) {
-        cell.style.background=" url('/img/target.png') no-repeat right top";
-        cell.style.backgroundSize ="100% 100%";
+        var targetImg = getTargetImg(t);
+        cell.appendChild(targetImg);
+        //cell.style.background=" url('/img/target.png') no-repeat right top";
+        //cell.style.backgroundSize ="100% 100%";
+      }  else {
+        console.log('not found target !');
       }
     }
 }
@@ -153,16 +167,16 @@ function dessinerCible() {
   img.src = "/img/robot_"+color+".png";
   img.width = "15";
   img.height = "15";
-  
+
   return img;
 }
-// dessiner robots 
+// dessiner robots
 function dessinerRobots() {
   for (var i = 0; i < robots.length; i++) {
     var line = robots[i].line;
     var column = robots[i].column;
     var color = robots[i].color;
-      
+
     if(partie) {
       var cell = document.getElementById('i'+line+'_j'+column);
       if(cell) {
@@ -171,7 +185,7 @@ function dessinerRobots() {
         //cell.style.background=" url('/img/robot_"+color+".png') no-repeat right top";
         //cell.style.backgroundSize ="100% 100%";
       } else {
-        console.log('not found !');
+        console.log('not found robot !');
       }
     }
   };
