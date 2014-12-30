@@ -239,7 +239,7 @@ var currentRobotColumn;
  			console.log(this.response);
  			var response = JSON.parse(this.response);
  			$('#serverresponse').html(this.response);
- 			if(response.state != 'INVALID_MOVE') {
+ 			//if(response.state != 'INVALID_MOVE') {
  				resetCells();
 	 			demarquerRobot(currentRobotCellId);
 	 			currentRobotCellId = "i"+l+"_j"+c; 
@@ -249,7 +249,7 @@ var currentRobotColumn;
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);	
 		    	marquerRobot(currentRobotCellId, currentRobotColor);
- 			}	
+ 			//}	
  		}
  			,variables: {
 				login:user 
