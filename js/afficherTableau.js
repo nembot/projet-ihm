@@ -150,10 +150,10 @@ function dessinerCible() {
       var cell = document.getElementById('i'+l+'_j'+c);
 
       if(cell) {
-        var targetImg = getTargetImg(t);
-        cell.appendChild(targetImg);
-        //cell.style.background=" url('/img/target.png') no-repeat right top";
-        //cell.style.backgroundSize ="100% 100%";
+        //var targetImg = getTargetImg(t);
+        //cell.appendChild(targetImg);
+        cell.style.background=" url('/img/target_"+t+".png') no-repeat right top";
+        cell.style.backgroundSize ="100% 100%";
       }  else {
         console.log('not found target !');
       }

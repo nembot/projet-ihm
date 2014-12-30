@@ -228,29 +228,14 @@ var currentRobotColumn;
  }
 
  function sendProposition(color, l, c) {
- 	console.log('l : '+l+' c:'+c);
-
- 	//$('#proposition').html('Transfert du robot '+color+' à ligne '+l+' et colonne '+c);
-
- 	var propo = currentSolution;
- 	propo.push( {
-						command : 'select'
-						, robot: color
-					}, {
-						command:'move'
-						, line : l
-						, column : c
-					});
- 	$('#proposition').html(JSON.stringify(propo));
-
+ 	currentSolution.push({ command : 'select', robot: color}, { command:'move', line : l, column : c});
+ 	console.log(color);
 	XHR("POST" ,"/proposition"
  		, { onload : function() {
- 			console.log(this);
- 			console.log(robots);
- 			console.log(this.response);
  			var response = JSON.parse(this.response);
+ 			console.log(response);
  			$('#serverresponse').html(this.response);
- 			//if(response.state != 'INVALID_MOVE') {
+ 			if(response.state != 'INVALID_MOVE' && response.state != 'INVALID_SELECT') {
  				resetCells();
 	 			demarquerRobot(currentRobotCellId);
 	 			currentRobotCellId = "i"+l+"_j"+c;
@@ -260,15 +245,16 @@ var currentRobotColumn;
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);
 		    	marquerRobot(currentRobotCellId, currentRobotColor);
-		    	currentSolution = propo;
-
- 			//}
+			} else {
+				currentSolution.pop();
+				currentSolution.pop();
+			}
  		}
- 			,variables: {
-				login:user
-				, idGame:idG
-				, proposition: JSON.stringify(propo)
- 			}
+ 		,variables: {
+			login:user
+			, idGame:idG
+			, proposition: JSON.stringify(currentSolution)
+ 		}
  	});
 
  }
