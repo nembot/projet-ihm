@@ -75,7 +75,7 @@ var RasendeRoboter = function() {return {
 		 return true;
 		}
 	, getNextPositionsFrom: function(robots, line, column) {
-		 // console.log("getNextPositionsFrom " +line+" "+column);
+		 console.log("getNextPositionsFrom " +line+" "+column);
 		 var nexts = [], l, c;
 		 // Go left
 		 l = line; c = column;
@@ -136,7 +136,8 @@ var RasendeRoboter = function() {return {
 					if(this.isAmong({l:proposition[i].line, c:proposition[i].column}, nexts)) {
 						 currentRobot.line 	 = proposition[i].line;
 						 currentRobot.column = proposition[i].column;
-						} else	{state   = 'INVALID_MOVE';
+						} else	{
+								 state   = 'INVALID_MOVE';
 								 details = 'Robot must move along a column or a line until it meet another robot or a wall.';
 								}
 				 break;
@@ -146,15 +147,15 @@ var RasendeRoboter = function() {return {
 			}
 		 if(currentRobot == null) {state = 'INVALID_EMPTY'; details = 'A proposition can not be empty';}
 		 if(state == '') { // Proposition is valid. If incomplete then send back next possible movement for last selected robot
-			 // console.log("Cible et robot");
-			 // console.log("\t"+currentRobot.color+' == '+this.cibles[ this.cible ].t);
-			 // console.log("\t"+currentRobot.line  == this.cibles[ this.cible ].l
-			 // console.log("\t"+
+			 console.log("Cible et robot");
+			 console.log("\t"+currentRobot.color+' == '+this.cibles[ this.cible ].t);
+			 console.log("\t"+currentRobot.line  == this.cibles[ this.cible ].l);
+			 //console.log("\t"+
 			 if( currentRobot.color == this.cibles[ this.cible ].t
 			   &&currentRobot.line  == this.cibles[ this.cible ].l
 			   &&currentRobot.column == this.cibles[ this.cible ].c ) {
 					 state = 'SUCCESS';
-					 
+
 					} else 	{state = 'INCOMPLETE';
 							 nextPositions = this.getNextPositionsFrom(P, currentRobot.line, currentRobot.column);
 							}
@@ -184,13 +185,13 @@ var RRServer = {
 									}
 								 return answer;
 								}
-				  , new		: function(id)	{//console.log('Opening game ' + id);
+				  , new		: function(id)	{console.log('Opening game ' + id);
 								 if(this.list[id]) {throw new Error( 'NOT_UNIQUE_ID');}
 								 this.list[id] = {participants:{}, propositions:[], game: (new RasendeRoboter()).init()}
 								 setTimeout( function() {RRServer.games.checkParticipants(id);}, 5000);
 								 RRServer.sendGamesInfo();
 								}
-				  , close	: function(id)	{//console.log('Closing game ' + id);
+				  , close	: function(id)	{console.log('Closing game ' + id);
 								 if(this.list[id] == undefined) {throw new Error( 'NO_SUCH_GAME_ID');}
 								 delete this.list[id];
 								 RRServer.sendGamesInfo();
@@ -198,23 +199,23 @@ var RRServer = {
 				  , joining	: function(idGame, playerName) {
 								 if(this.list[idGame] == undefined) {throw new Error( 'NO_SUCH_GAME_ID' );}
 								 if(this.list[idGame].participants[playerName] == undefined) {
-									 //console.log("\tParticipant " + playerName + ' is joining game ' + idGame);
+									 console.log("\tParticipant " + playerName + ' is joining game ' + idGame);
 									 this.list[idGame].participants[playerName] = {name:playerName, sockets: new Array()};
 									}
 								}
 				  , leaving	: function(idGame, playerName) {
 								 if(this.list[idGame] == undefined) {throw new Error( 'NO_SUCH_GAME_ID' );}
 								 if(this.list[idGame].participants[playerName] == undefined) {throw new Error( 'PLAYER_IS_NOT_PRESENT' );}
-								 //console.log("\tPlayer " + playerName + ' is leaving game ' + idGame);
+								 console.log("\tPlayer " + playerName + ' is leaving game ' + idGame);
 								 delete this.list[idGame].participants[playerName];
 								 this.sendListOfParticipants(idGame);
 								 setTimeout( function() {RRServer.games.checkParticipants(idGame);}, 5000);
 								}
 				  , checkParticipants : function(idGame) {//console.log("\tcheckParticipants");
 								 if(this.list[idGame] == undefined) {return;}
-								 var nb=0; 
+								 var nb=0;
 								 for(i in this.list[idGame].participants) {
-									 //console.log("\t\tConsidering participant " + i + ' with ' + this.list[idGame].participants[i].sockets.length + ' sockets');
+									 console.log("\t\tConsidering participant " + i + ' with ' + this.list[idGame].participants[i].sockets.length + ' sockets');
 									 if(this.list[idGame].participants[i].sockets.length > 0) {nb++;}
 									}
 								 if(nb==0) {this.close(idGame);}
@@ -224,7 +225,7 @@ var RRServer = {
 								 if(this.list[idGame].participants[playerName] == undefined) {
 									 this.joining(idGame, playerName);
 									}
-								 //console.log("\tParticipant " + playerName + " is connected on game " + idGame + " using socket " + socket.id);
+								 console.log("\tParticipant " + playerName + " is connected on game " + idGame + " using socket " + socket.id);
 								 this.list[idGame].participants[playerName].sockets.push(socket);
 								 this.sendListOfParticipants(idGame);
 								}
@@ -292,7 +293,7 @@ var RRServer = {
 			}
 		 this.games.disconnect(socket);
 		}
-	, sendGamesInfo	: function(sockets) {//console.log("--> Sending game informations");
+	, sendGamesInfo	: function(sockets) {console.log("--> Sending game informations");
 		 sockets = sockets || this.sockets;
 		 // Build the game list
 		 var gamesList = [];
@@ -355,7 +356,7 @@ var RRServer = {
 								 );
 						res.end();
 					  });
-					
+
 				})
 		this.app.use(function(req, res) {
 				 if(req.method == "GET") {
@@ -376,10 +377,10 @@ var RRServer = {
 				 if(req.method == "POST") {
 					 // Is it a proposition of solution?
 					 var REST_command = req.url.slice(1);
-					 // console.log("Receiving a proposition :");
+					 console.log("Receiving a proposition :");
 					 switch(REST_command) {
 						 case 'proposition':
-							// for(var i in req.body) {console.log("\t"+i+' : '+req.body[i]);}
+							for(var i in req.body) {console.log("\t"+i+' : '+req.body[i]);}
 							try {var answer = RRServer.games.ProcessProposition( req.body.idGame, req.body.login, JSON.parse( req.body.proposition ));
 								}
 							catch(err) {
@@ -390,7 +391,7 @@ var RRServer = {
 								}
 							res.writeHead(200, {'Content-Type': 'application/json'});
 							// console.log( 'coucou' );
-							// console.log( "Send answer : " + JSON.stringify( answer ));
+							console.log( "Send answer : " + JSON.stringify( answer ));
 							res.end( JSON.stringify( answer ) );
 						 break;
 						}
@@ -401,9 +402,9 @@ var RRServer = {
 		 if(this.io) {
 		 this.io	= this.io.listen( this.server, { log: false } );
 		 // assuming io is the Socket.IO server object
-		 /*this.io.configure(function () { 
-			 RRServer.io.set("transports", ["xhr-polling"]); 
-			 RRServer.io.set("polling duration", 10); 
+		 /*this.io.configure(function () {
+			 RRServer.io.set("transports", ["xhr-polling"]);
+			 RRServer.io.set("polling duration", 10);
 			});*/
 
 		 this.io.on	('connection', function (socket) {
@@ -411,7 +412,7 @@ var RRServer = {
 													, function(data) {
 														 //console.log("Someone is connected on the loggin page...");
 														 RRServer.connect( socket );
-														}			
+														}
 													);
 										  socket.on	( 'identification'
 													, function(data) {
@@ -440,4 +441,3 @@ io.sockets.on('connection', function (socket) {
 		});
 	});
 */
-
