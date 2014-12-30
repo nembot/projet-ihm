@@ -28,13 +28,24 @@
 
 <body onload="initPage();">
 	<header>
-		<h1>Partie __IDGAME__ __STATE__</h1>
-		<p>Vous êtes connecté en tant que __LOGIN__</p>
+		<div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><span id="indicateurpartie"> Partie __IDGAME__ __STATE__</span></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Participants <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" id="lesParticipants" >
+                  <li></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">Vous êtes connecté en tant que __LOGIN__ <span class="sr-only">(current)</span></a></li>
+            </ul>
+          </div>
+
+		
 		<input id="login" type="hidden" value="__LOGIN__"/>
-		<input id="idGame" type="hidden" value="__IDGAME__"/>
-		<nav>
-			<ul id="lesParticipants" />
-		</nav>
+			<input id="idGame" type="hidden" value="__IDGAME__"/>	
 		<nav  class="text-centers">
 			<h3 id="welcome"> Instructions <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>
 			<div id="menu"></div>
