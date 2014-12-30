@@ -5,9 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 	<head>
 		<title>Rasende Roboter</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="js/logged.js"></script>
 		<script type="text/javascript" src="js/afficherTableau.js"></script>
+		<script type="text/javascript" src="js/deplacements.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 
@@ -17,6 +20,7 @@
 			  margin-left: auto ;
 			  margin-right: auto ;
 			}
+
 		</style>
 		<script type="text/javascript">
 			function initPage() {
@@ -35,6 +39,11 @@
 			<p>Vous êtes connecté en tant que __LOGIN__</p>
 			<input id="login" type="hidden" value="__LOGIN__"/>
 			<input id="idGame" type="hidden" value="__IDGAME__"/>
+
+
+			Proposition : <p id="proposition"></p>
+			Réponse serveur : <p id="serverresponse"></p>
+			
 		</header>
 		<section>
 			<nav>
@@ -50,6 +59,7 @@
 			</section>
 		</section>
 		<footer>
+
 			tous droits réservés
 		</footer>
 	</body>
