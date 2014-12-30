@@ -2,6 +2,8 @@
 var game = {};
 // 1) on ramène le tableau dynamiquement par le nom de partie en cours
 // pour l'instant elle est fixe sur la patie test1.
+var idG;
+var user;
 
 var board = {};
 var robots = {};
@@ -11,20 +13,21 @@ var partie;
 
 
   function showGame() {
-
+    idG = document.getElementById('idGame').value;
+    user = document.getElementById('login').value;
     XHR( "GET"
-       , "/"+document.getElementById('idGame').value
+       , "/"+idG
        ,   { 
             onload : function() {
               game = JSON.parse(this.response);
               board = game.board;
               robots = game.robots;
               target = game.target;
-
               console.log(game);
 
               if(board != null && robots != null && target != null)
                 dessinerTableau();  
+                initDeplacements();
             }
      });
   }
@@ -62,9 +65,8 @@ function dessinerTableau() {
   dessinerGrille();
   dessinerCible();
   dessinerRobots();
+
 }
-
-
 
 
 // dessigner grille : 
@@ -73,9 +75,10 @@ function dessinerGrille() {
   partie = document.getElementById('tablePartie');
   if(partie) {
     var tbl=document.createElement('table');
+    tbl.id = "tableJeu";
     tbl.style.width='400px';
     tbl.style.height='400px';
-    
+    tbl.style.tableLayout="fixed";
     tbl.setAttribute('border','1');
     var tbdy=document.createElement('tbody');
     
@@ -130,11 +133,30 @@ function dessinerGrille() {
 // dessiner obstacles:  
 
 function dessinerCible() {
-    
+    if(target) {
+      var l = target.l;
+      var c = target.c;
+      var t = target.t;
+
+      var cell = document.getElementById('i'+l+'_j'+c);
+      if(cell) {
+        cell.style.background=" url('/img/target.png') no-repeat right top";
+        cell.style.backgroundSize ="100% 100%";
+      }
+    }
 }
 
-// dessiner robots 
 
+ function getRobotImg(color) {
+  var img = document.createElement('img');
+  img.setAttribute("id", "robot_"+color);
+  img.src = "/img/robot_"+color+".png";
+  img.width = "15";
+  img.height = "15";
+  
+  return img;
+}
+// dessiner robots 
 function dessinerRobots() {
   for (var i = 0; i < robots.length; i++) {
     var line = robots[i].line;
@@ -144,8 +166,10 @@ function dessinerRobots() {
     if(partie) {
       var cell = document.getElementById('i'+line+'_j'+column);
       if(cell) {
-        cell.style.background=" url('/img/robot_"+color+".png') no-repeat right top";
-        cell.style.backgroundSize ="100% 100%";
+        var robotImg = getRobotImg(color);
+        cell.appendChild(robotImg);
+        //cell.style.background=" url('/img/robot_"+color+".png') no-repeat right top";
+        //cell.style.backgroundSize ="100% 100%";
       } else {
         console.log('not found !');
       }
