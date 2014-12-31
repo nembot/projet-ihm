@@ -4,7 +4,7 @@ var currentRobotColor;
 var currentRobotCellId;
 var currentRobotLine;
 var currentRobotColumn;
-
+var success = false;
 
  function addCellsListener() {
  	//console.log('adding cells listeners');
@@ -233,11 +233,15 @@ var currentRobotColumn;
 	XHR("POST" ,"/proposition"
  		, { onload : function() {
  			var response = JSON.parse(this.response);
- 			if(response.state != 'INVALID_MOVE' && response.state != 'INVALID_SELECT') {
- 				if(response.state == 'SUCCESS') {
- 					ohSnap('Partie terminée, félicitations !', 'green');
-		    	}
- 				resetCells();
+      console.log("success="+success);
+ 			if(response.state != 'INVALID_MOVE' && response.state != 'INVALID_SELECT' && success == false) {
+        success = false; 
+        if(response.state == 'SUCCESS') {
+          ohSnap('Partie terminée, félicitations !', 'green');
+          success = true;
+          console.log("success2="+success);
+        }
+        resetCells();
 	 			demarquerRobot(currentRobotCellId);
 	 			currentRobotCellId = "i"+l+"_j"+c;
 		    	currentRobotLine = l;
@@ -254,7 +258,7 @@ var currentRobotColumn;
 		    			ohSnap('Déplacement invalide', 'red');
 		    	if(response.state == 'INVALID_SELECT')
 		    			ohSnap('Veuillez sélectionner un autre robot', 'red');
-		    						
+
 				currentSolution.pop();
 				currentSolution.pop();
 			}
