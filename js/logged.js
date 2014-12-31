@@ -35,7 +35,7 @@ function showParticipant(socketF) {
 		 var ul = document.getElementById('lesParticipants');
 		 ul.innerHTML='';
 		 for(p in data.participants) {
-			 var li = document.createElement('li'); 
+			 var li = document.createElement('li');
 			 ul.appendChild( li );
 			 li.appendChild( document.createTextNode( data.participants[p] ) );
 			 if(data.participants[p] == currentParticipant) {
@@ -44,7 +44,7 @@ function showParticipant(socketF) {
 			}
 
 			if(count > 1) {
-				alert('ce joueur est déja connecté sur cette partie !');
+				alert('Ce joueur est déja connecté sur cette partie !');
 				window.location.replace('http://localhost:8090/login.xhtml');
 			}
 		});

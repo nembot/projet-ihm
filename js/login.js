@@ -23,7 +23,7 @@ function init() {
 		var ul = document.getElementById('lesParties');
 		ul.innerHTML='';
 		if (data.gamesList.length > 0) {
-			rejoindreUnePartie.innerHTML='Rejoindre une partie';
+			rejoindreUnePartie.innerHTML='Rejoindre une partie :';
 		}
 		for(p in data.gamesList) {
 			var li = document.createElement('li');
@@ -35,6 +35,9 @@ function init() {
 			a.setAttribute('id', data.gamesList[p]);
 			a.setAttribute('onclick', 'putName("'+data.gamesList[p]+'")');
 		}
+		if (data.gamesList.length == 0) {
+			rejoindreUnePartie.innerHTML='Aucune partie créée';
+		}
 	}
 );
 socket.emit('loginPage');
@@ -42,5 +45,28 @@ socket.emit('loginPage');
 
 function putName(id) {
 	document.getElementById("idGame").value = id;
+	document.getElementById("idGame").setAttribute('class', 'form-control');
 	document.getElementById("idGame").setAttribute('readonly', '');
+	document.getElementById("divPseudo").setAttribute('class','has-error');
+	document.getElementById("labelPseudo").setAttribute('class','control-label');
+	document.getElementById("labelPseudo").innerHTML = "Renseigne ton pseudo !";
+}
+
+function verif_champ() {
+	var idGame = document.getElementById("idGame").value;
+	var login = document.getElementById("login").value;
+
+	if (idGame == "") {
+		alert("Le nom de partie n'est pas renseigné !");
+		return false;
+	}
+	else if (login == "") {
+		alert("Le login n'est pas renseigné !");
+		return false;
+	}
+	else {
+		alert("Les champs ne sont pas renseignés");
+		return false;
+	}
+	return true;
 }

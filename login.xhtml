@@ -21,16 +21,20 @@
 		</nav>
 	</header>
 	<section id="content">
-		<form method="post" action="" id="nouvellePartie">
+		<form name="form1" method="post" action="" id="nouvellePartie" onsubmit="return verif_champ();">
 			<div id="content-left">
 				<label id="rejoindrepartie" for="idGame">Aucune partie créée</label>
 				<ul id="lesParties">
 				</ul>
 				<br/>
-				<label for="idGame">Nouvelle partie </label><input type="text" name="idGame" id="idGame"/>
-				<br/> <br/>
-				<label for="login">Nom joueur </label><input type="text" name="login" id="login"/>
-				<br/> <br/>
+				<div id="divIdGame" class="form-group">
+					<input type="text" name="idGame" id="idGame" class="form-control" placeholder="Nom de la partie"/>
+				</div>
+				<div id="divPseudo" class="form-group">
+					<label id="labelPseudo" class="controls-label"></label>
+					<input type="text" name="login" id="login" class="form-control" placeholder="Pseudo"/>
+				</div>
+				<br/>
 				<label style="float:left; display:block" for="login"><br/> <br/>Avatar </label>
 				<div id="carousel" class="carousel slide" data-ride="pause">
 					<!-- Indicators >
@@ -83,8 +87,9 @@
 					<input id="id_avatar" name="id_avatar" type="hidden" value="1"  />
 				</div>
 				<div class="clear" >&nbsp;</div>
-				<div style="width:120px; margin:0 auto;">
+				<div style="width:177px; margin:0 auto;">
 					<input type="submit" class="btn btn-primary" value="Commencer !" />
+					<input type="reset" class="btn btn-primary" value="Reset" />
 				</div>
 			</div>
 			<div class="clear" >&nbsp;</div>
