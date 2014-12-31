@@ -64,9 +64,5 @@ function verif_champ() {
 		alert("Le login n'est pas renseigné !");
 		return false;
 	}
-	else {
-		alert("Les champs ne sont pas renseignés");
-		return false;
-	}
 	return true;
 }
