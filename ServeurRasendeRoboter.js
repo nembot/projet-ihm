@@ -260,7 +260,7 @@ var RRServer = {
 				  , FinalCountDown: function(idGame, playerName, proposition) {
 						 this.list[idGame].finalCountDown = true;
 						 this.list[idGame].solutions = [];
-						 var ms = 10000;
+						 var ms = 60000;
 						 this.emit(idGame, 'FinalCountDown', {FinalCountDown: ms});
 						 this.OtherFinalProposition(idGame, playerName, proposition);
 						 setTimeout	( function() {RRServer.games.TerminateGame(idGame);}
