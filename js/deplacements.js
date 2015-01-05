@@ -310,8 +310,9 @@ function setRobotByEvent(e) {
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);
 		    	//marquerRobot(currentRobotCellId, currentRobotColor);
-		    	var logString = '<p style="color : '+color+';">'+color+' vers l: '+l+' c : '+c+'</p>'
-		    	$('#logText').prepend(logString);
+					/* Suppression des log */
+		    	//var logString = '<p style="color : '+color+';">'+color+' vers l: '+l+' c : '+c+'</p>'
+		    	//$('#logText').prepend(logString);
 
 		    } else {
 		    	if(response.state == 'INVALID_MOVE')
