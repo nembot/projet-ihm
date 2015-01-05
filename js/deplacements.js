@@ -32,6 +32,10 @@ var success = false;
  	$("#"+currentRobotCellId).empty();
  }
 
+ function initTouch() {
+ 	
+ }
+
  function initKeyboard() {
  	$('html').bind('keydown', function(e){
  		if(e.keyCode == 37 || e.keyCode == 38 ||e.keyCode == 39 ||e.keyCode == 40)
