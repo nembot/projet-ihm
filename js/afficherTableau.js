@@ -76,8 +76,9 @@ function dessinerGrille() {
   if(partie) {
     var tbl=document.createElement('table');
     tbl.id = "tableJeu";
-    tbl.style.width='400px';
-    tbl.style.height='400px';
+    tbl.className = "table table-bordered";
+    //tbl.style.width='400px';
+    //tbl.style.height='400px';
     tbl.style.tableLayout="fixed";
     tbl.setAttribute('border','1');
     var tbdy=document.createElement('tbody');
@@ -115,7 +116,7 @@ function dessinerGrille() {
               //cellCls += 'noBorderDroite';
             }
 
-            td.appendChild(document.createTextNode('.'));
+            //td.appendChild(document.createTextNode(''));
             td.className  = cellCls;
             td.id = cellId;
             tr.appendChild(td)
@@ -136,8 +137,8 @@ function getTargetImg(color) {
   var imgTarget = document.createElement('img');
   imgTarget.setAttribute("id", "target_"+color+".png");
   imgTarget.src = "/img/target_"+color+".png";
-  imgTarget.width = "15";
-  imgTarget.height = "15";
+  //imgTarget.width = "15";
+  //imgTarget.height = "15";
 
   return imgTarget;
 }
@@ -165,8 +166,9 @@ function dessinerCible() {
   var img = document.createElement('img');
   img.setAttribute("id", "robot_"+color);
   img.src = "/img/robot_"+color+".png";
-  img.width = "15";
-  img.height = "15";
+  img.className = "robot_partie"
+  //img.width = "15";
+  //img.height = "15";
 
   return img;
 }

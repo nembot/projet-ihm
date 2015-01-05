@@ -5,6 +5,18 @@ var currentRobotCellId;
 var currentRobotLine;
 var currentRobotColumn;
 var success = false;
+var clock;
+
+$(document).ready(function() {
+	clock = $('.clock').FlipClock({
+		clockFace: 'MinuteCounter',
+		callbacks: {
+			interval: function() {
+				var time = this.factory.getTime().time;
+			}
+		}
+	});
+});
 
 
 function setRobotByEvent(e) {
@@ -299,6 +311,7 @@ function setRobotByEvent(e) {
         if(response.state == 'SUCCESS') {
           ohSnap('Partie terminée, félicitations !', 'green');
           success = true;
+					clock.stop();
           console.log("success2="+success);
         }
         resetCells();

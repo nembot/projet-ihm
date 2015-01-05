@@ -18,9 +18,28 @@ function show_info()
 		bottom:'150px',
 	},"400");
 
+	$("#robot-logged").animate({
+		bottom:'100px',
+	},"600");
+	$("#robot-logged").animate({
+		bottom:'70px',
+	},"400");
+	$("#robot-logged").animate({
+		bottom:'90px',
+	},"400");
+	$("#robot-logged").animate({
+		bottom:'80px',
+	},"400");
+
+
 	$("#help-text").animate({
 		opacity:'1',
 		height:"200px",
+	},"slow");
+
+	$("#help-text-logged").animate({
+		opacity:'1',
+		height:"170px",
 	},"slow");
 	shown=true;
 }
@@ -32,9 +51,22 @@ function hide_info()
 	$("#robot").animate({
 		bottom:'-150px',
 	});
+
+	$("#robot-logged").animate({
+		bottom:'100px',
+	});
+	$("#robot-logged").animate({
+		bottom:'-150px',
+	});
+
 	$("#help-text").animate({
 		opacity:'0',
 		height:"0px",
 	},"slow");
+	$("#help-text-logged").animate({
+		opacity:'0',
+		height:"0px",
+	},"slow");
+
 	shown=false;
 }
