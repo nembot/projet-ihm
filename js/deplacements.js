@@ -42,13 +42,16 @@ var success = false;
    // by default, it only adds horizontal recognizers
    var mc = new Hammer(myElement);
 
+    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    mc.get('pinch').set({ enable: true });
+    mc.get('rotate').set({ enable: true });
+
    // listen to events...
-   mc.on("dragleft dragright swipeleft swiperight dragup dragdown swipeup swipedown", function(ev) {
+   mc.on("swipe", function(ev) {
    	 ev.gesture.preventDefault();
    	 var id = $(ev.target).closest('td').attr('id');
    	 
-
-   	 $(ev.target).closest('td').css('background-color', 'red');
+   	 //$(ev.target).closest('td').css('background-color', 'red');
 
 
      //myElement.textContent = ev.type +" gesture detected.";
