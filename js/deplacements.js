@@ -9,7 +9,7 @@ var success = false;
 
 function setRobotByEvent(e) {
 	var id = $(e.target).closest('td').attr('id');
- 		
+
  		var robotCoordinates = getLineAndColumnFromId(id);
  		var line = robotCoordinates.line;
  		var column = robotCoordinates.column;
@@ -28,7 +28,7 @@ function setRobotByEvent(e) {
  function addCellsListener() {
  	//console.log('adding cells listeners');
  	$("#tableJeu").click(function(e) {
- 		setRobotByEvent();
+ 		setRobotByEvent(e);
  	});
  }
 
