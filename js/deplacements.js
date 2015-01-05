@@ -37,12 +37,17 @@ var success = false;
 
    var myElement = document.getElementById('tablePartie');
 
+
    // create a simple instance
    // by default, it only adds horizontal recognizers
    var mc = new Hammer(myElement);
 
    // listen to events...
-   mc.on("panleft panright tap press", function(ev) {
+   mc.on("panleft panright panup panbottom tap press", function(ev) {
+   	 var id = $(e.target).closest('td').attr('id');
+   	 $(e.target).closest('td').css('background-color', 'red');
+   	 
+   	 
      //myElement.textContent = ev.type +" gesture detected.";
      alert(ev.type + "");
    });
