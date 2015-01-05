@@ -34,14 +34,14 @@ function init() {
 			var source = '../img/image1.jpg';
 			//ul.appendChild( li );
 			//li.appendChild( a );
-			fisheye.appendChild( img );
+			fisheye.appendChild( a );
+			a.appendChild( img );
 			img.setAttribute('src', source);
-			img.appendChild( a );
-			a.appendChild( document.createTextNode( data.gamesList[p] ) );
+			img.setAttribute('alt',data.gamesList[p]);
+			//a.appendChild( document.createTextNode( data.gamesList[p] ) );
 			a.setAttribute('href', '#');
 			a.setAttribute('id', data.gamesList[p]);
 			a.setAttribute('onclick', 'putName("'+data.gamesList[p]+'")');
-			a.text('test');
 		}
 		if (data.gamesList.length == 0) {
 			rejoindreUnePartie.innerHTML='Aucune partie créée';
