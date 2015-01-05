@@ -48,7 +48,6 @@ var success = false;
 
    // listen to events...
    mc.on("swipe", function(ev) {
-   	 ev.gesture.preventDefault();
    	 var id = $(ev.target).closest('td').attr('id');
    	 
    	 //$(ev.target).closest('td').css('background-color', 'red');
