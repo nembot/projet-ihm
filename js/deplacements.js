@@ -33,7 +33,24 @@ var success = false;
  }
 
  function initTouch() {
+	hammertime.on('pan', function(ev) {
+    	console.log(ev);
+	});	
  	
+ 	
+ 	$('html').hammer().on("swipe", function(event) {
+    	alert('swipe ! ');
+	});
+ 	
+/* 
+ 	$('html').bind('touchEvent', function() {
+ 		if(e.keyCode == 37 || e.keyCode == 38 ||e.keyCode == 39 ||e.keyCode == 40)
+ 		var hammertime = new Hammer(myElement, myOptions);
+
+
+ 	});
+
+*/
  }
 
  function initKeyboard() {
@@ -342,6 +359,7 @@ var success = false;
  function initDeplacements() {
  	addCellsListener();
  	initKeyboard();
+ 	initTouch();
  	//if(!robotActuel) { // la premiere fois on doit initialiser toutes les variables des robots
  	//	initPositions(); // remplie les variables de position de tous les robots
  	//}
