@@ -6,11 +6,10 @@ var currentRobotLine;
 var currentRobotColumn;
 var success = false;
 
- function addCellsListener() {
- 	//console.log('adding cells listeners');
- 	$("#tableJeu").click(function(e) {
- 		var id = $(e.target).closest('td').attr('id');
 
+function setRobotByEvent(e) {
+	var id = $(e.target).closest('td').attr('id');
+ 		
  		var robotCoordinates = getLineAndColumnFromId(id);
  		var line = robotCoordinates.line;
  		var column = robotCoordinates.column;
@@ -24,6 +23,12 @@ var success = false;
  			currentRobotColumn = column;
  			//marquerRobot(id, currentRobotColor);
  		}
+}
+
+ function addCellsListener() {
+ 	//console.log('adding cells listeners');
+ 	$("#tableJeu").click(function(e) {
+ 		setRobotByEvent();
  	});
  }
 
@@ -37,7 +42,6 @@ var success = false;
 
    var myElement = document.getElementById('tablePartie');
 
-
    // create a simple instance
    // by default, it only adds horizontal recognizers
    var mc = new Hammer(myElement);
@@ -47,14 +51,34 @@ var success = false;
     mc.get('rotate').set({ enable: true });
 
    // listen to events...
-   mc.on("swipe", function(ev) {
-   	 var id = $(ev.target).closest('td').attr('id');
+   mc.on("pan panleft panright panup pandown", function(ev) {
+   	 setRobotByEvent(ev);
    	 
+   	 if(ev.type == "panup" || ev.type == "pandown" ||ev.type == "panright" ||ev.type == "panleft")
+ 			//e.preventDefault();
+	    if(currentRobotColor != "") {
+	    	var nextCell;
+	    	if(ev.type == "panup") {//up
+	    		nextCell = getNextPosition("up");
+	    	} else if(ev.type == "pandown") {//down
+	    		nextCell = getNextPosition("down");
+	    	} else if(ev.type == "panright") {//right
+				nextCell = getNextPosition("right");
+	    	} else if(ev.type == "panleft") {// left
+	    		nextCell = getNextPosition("left");
+	    	}
+	    	if(nextCell) { // proposée
+	    		var id = nextCell.attr('id');
+	    		var l = getLineAndColumnFromId(id).line;
+	    		var c = getLineAndColumnFromId(id).column;
+	    		sendProposition(currentRobotColor, l, c);
+	    	}
+	    }
    	 //$(ev.target).closest('td').css('background-color', 'red');
 
 
      //myElement.textContent = ev.type +" gesture detected.";
-     alert(ev.type + "");
+     //alert(ev.type + "");
    });
 
 
