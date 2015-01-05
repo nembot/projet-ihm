@@ -32,15 +32,17 @@ var success = false;
  	$("#"+currentRobotCellId).empty();
  }
 
+
  function initTouch() {
-	hammertime.on('pan', function(ev) {
-    	console.log(ev);
+	
+	var hammer = Hammer($("html"), {
+		transform_always_block: true,
+		tap_always: false,
+		drag_min_distance: 0
 	});	
  	
- 	
- 	
- 	$('html').hammer().on("swipe", function(event) {
-    	alert('swipe ! ');
+ 	hammer.on("touch tap doubletap transformstart transform dragstart drag hold", function(event) {
+    	alert('hammer is working ! ');
 	});
 
 /* 
