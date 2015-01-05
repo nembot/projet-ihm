@@ -84,6 +84,25 @@ body{
 	height:0px;
 }
 
+.FisheyeMenu img {
+	margin:2px;
+	border:0;
+	vertical-align:top;
+	padding:5px;
+	width:66px;
+	height:66px;
+	transition: width 0.2s, height 0.2s;
+}
+.FisheyeMenu img:hover{
+	margin:2px;
+	border:0;
+	vertical-align:top;
+	padding:5px;
+	width:75px;
+	height:75px;
+	transition: width 0.2s, height 0.2s;
+}
+
 .blue {
 	color:#428bca !important;
 }
