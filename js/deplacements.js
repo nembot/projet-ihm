@@ -44,10 +44,12 @@ var success = false;
 
    // listen to events...
    mc.on("panleft panright panup panbottom tap press", function(ev) {
-   	 var id = $(e.target).closest('td').attr('id');
-   	 $(e.target).closest('td').css('background-color', 'red');
+   	 var id = $(ev.target).closest('td').attr('id');
    	 
-   	 
+
+   	 $(ev.target).closest('td').css('background-color', 'red');
+
+
      //myElement.textContent = ev.type +" gesture detected.";
      alert(ev.type + "");
    });
