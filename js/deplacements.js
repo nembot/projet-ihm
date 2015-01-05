@@ -45,6 +45,8 @@ var success = false;
     	alert('hammer is working ! ');
 	});
 
+	
+
 /* 
  	$('html').bind('touchEvent', function() {
  		if(e.keyCode == 37 || e.keyCode == 38 ||e.keyCode == 39 ||e.keyCode == 40)
