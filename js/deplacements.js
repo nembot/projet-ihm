@@ -34,20 +34,21 @@ var success = false;
 
 
  function initTouch() {
-	
-	var hammer = Hammer($("html"), {
-		transform_always_block: true,
-		tap_always: false,
-		drag_min_distance: 0
-	});	
- 	
- 	hammer.on("touch tap doubletap transformstart transform dragstart drag hold", function(event) {
-    	alert('hammer is working ! ');
-	});
 
-	
+   var myElement = document.getElementById('tablePartie');
 
-/* 
+   // create a simple instance
+   // by default, it only adds horizontal recognizers
+   var mc = new Hammer(myElement);
+
+   // listen to events...
+   mc.on("panleft panright tap press", function(ev) {
+     //myElement.textContent = ev.type +" gesture detected.";
+     alert(ev.type + "");
+   });
+
+
+/*
  	$('html').bind('touchEvent', function() {
  		if(e.keyCode == 37 || e.keyCode == 38 ||e.keyCode == 39 ||e.keyCode == 40)
  		var hammertime = new Hammer(myElement, myOptions);
@@ -261,7 +262,7 @@ var success = false;
  			var response = JSON.parse(this.response);
       console.log("success="+success);
  			if(response.state != 'INVALID_MOVE' && response.state != 'INVALID_SELECT' && success == false) {
-        success = false; 
+        success = false;
         if(response.state == 'SUCCESS') {
           ohSnap('Partie terminée, félicitations !', 'green');
           success = true;
