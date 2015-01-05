@@ -20,16 +20,21 @@ function init() {
 	socket = io.connect();
 	socket.on('gamesList', function(data) {
 		var rejoindreUnePartie = document.getElementById('rejoindrepartie');
-		var ul = document.getElementById('lesParties');
-		ul.innerHTML='';
+		//var ul = document.getElementById('lesParties');
+		var fisheye = document.getElementById('FisheyeMenu');
+		//ul.innerHTML='';
+		fisheye.innerHTML='';
 		if (data.gamesList.length > 0) {
 			rejoindreUnePartie.innerHTML='Rejoindre une partie :';
 		}
 		for(p in data.gamesList) {
-			var li = document.createElement('li');
+			//var li = document.createElement('li');
+			var img = document.createElement('img');
 			var a = document.createElement('a');
-			ul.appendChild( li );
-			li.appendChild( a );
+			//ul.appendChild( li );
+			//li.appendChild( a );
+			fisheye.appendChild( img );
+			img.appendChild( a );
 			a.appendChild( document.createTextNode( data.gamesList[p] ) );
 			a.setAttribute('href', '#');
 			a.setAttribute('id', data.gamesList[p]);
