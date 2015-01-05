@@ -43,7 +43,8 @@ var success = false;
    var mc = new Hammer(myElement);
 
    // listen to events...
-   mc.on("panleft panright panup panbottom tap press", function(ev) {
+   mc.on("dragleft dragright swipeleft swiperight dragup dragdown swipeup swipedown", function(ev) {
+   	 ev.gesture.preventDefault();
    	 var id = $(ev.target).closest('td').attr('id');
    	 
 
