@@ -16,7 +16,7 @@
 <body onload="init()">
 	<header>
 		<nav  class="text-centers">
-			<h3 id="welcome"> Bienvenu sur la platforme de jeu Robot Ricochet <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>
+			<h3 id="welcome"> Bienvenue sur la platforme de jeu Robot Ricochet <img onclick="info()" id="info" alt="information" src="img/info.png"/></h3>
 			<div id="menu"></div>
 		</nav>
 	</header>
@@ -24,8 +24,15 @@
 		<form name="form1" method="post" action="" id="nouvellePartie" onsubmit="return verif_champ();">
 			<div id="content-left">
 				<label id="rejoindrepartie" for="idGame">Aucune partie créée</label>
-				<ul id="lesParties">
-				</ul>
+				<!--<ul id="lesParties">-->
+					
+					<div onmouseover="FisheyeMenu(this);" class="FisheyeMenu" style="position:absolute">
+						<img src="img/image1.jpg"/>
+						<img src="img/image2.jpg"/>
+						<img src="img/image3.jpg"/>
+						<img src="img/image4.png"/>
+					</div>
+				<!--</ul>-->
 				<br/>
 				<div id="divIdGame" class="form-group">
 					<input type="text" name="idGame" id="idGame" class="form-control" placeholder="Nom de la partie"/>
