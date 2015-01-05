@@ -53,7 +53,6 @@ function setRobotByEvent(e) {
    // listen to events...
    mc.on("pan panleft panright panup pandown", function(ev) {
    	 setRobotByEvent(ev);
-
    	 if(ev.type == "panup" || ev.type == "pandown" ||ev.type == "panright" ||ev.type == "panleft")
  			//e.preventDefault();
 	    if(currentRobotColor != "") {
