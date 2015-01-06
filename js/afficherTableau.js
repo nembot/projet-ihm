@@ -131,17 +131,6 @@ function dessinerGrille() {
   }
 }
 
-// dessiner obstacles:
-
-function getTargetImg(color) {
-  var imgTarget = document.createElement('img');
-  imgTarget.setAttribute("id", "target_"+color+".png");
-  imgTarget.src = "/img/target_"+color+".png";
-  //imgTarget.width = "15";
-  //imgTarget.height = "15";
-
-  return imgTarget;
-}
 function dessinerCible() {
     //console.log(target);
     if(target) {
@@ -151,8 +140,6 @@ function dessinerCible() {
       var cell = document.getElementById('i'+l+'_j'+c);
 
       if(cell) {
-        //var targetImg = getTargetImg(t);
-        //cell.appendChild(targetImg);
         cell.style.background=" url('/img/target_"+t+".png') no-repeat right top";
         cell.style.backgroundSize ="100% 100%";
       }  else {
