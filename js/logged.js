@@ -38,15 +38,15 @@ function showParticipant(socketF) {
 			 var li = document.createElement('li');
 			 ul.appendChild( li );
 			 li.appendChild( document.createTextNode( data.participants[p] ) );
-			 if(data.participants[p] == currentParticipant) {
+			 /*if(data.participants[p] == currentParticipant) {
 			 	count++;
-			 }
+			 }*/
 			}
 
-			if(count > 1) {
+			/*if(count > 1) {
 				alert('Ce joueur est déja connecté sur cette partie !');
 				window.location.replace('http://localhost:8090/login.xhtml');
-			}
+			}*/
 		});
 }
 
