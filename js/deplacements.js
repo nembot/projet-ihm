@@ -45,7 +45,7 @@ function setRobotByEvent(e) {
  }
 
  function resetCells() {
- 	$("#"+currentRobotCellId).css('background-color', 'white');
+ 	$("#"+currentRobotCellId).css('background-color', '#f2f2f2');
  	$("#"+currentRobotCellId).empty();
  }
 
@@ -296,7 +296,7 @@ function setRobotByEvent(e) {
  }
 
  function demarquerRobot(id) {
- 	$("#"+id).css('background-color', 'white');
+ 	$("#"+id).css('background-color', '#f2f2f2');
  }
 
  function sendProposition(color, l, c) {
