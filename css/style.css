@@ -2,14 +2,18 @@ body{
 	background-color:#f2f2f2;
 	width:100%;
 }
+
+/* --- HEADER --- */
 #welcome{
-	width:800px;
 	text-align:center;
 	margin: 20px auto;
-}	
+}
+
 #info{
 	cursor:pointer;
 }
+
+/* --- BODY --- */
 #content{
 	border : 2px solid #ababab;
 	border-radius: 10px;
@@ -20,18 +24,6 @@ body{
 	margin:20px auto;
 	overflow:hidden;
 }
-
-#content-table{
-	border : 2px solid #ababab;
-	border-radius: 10px;
-	padding: 0 20px;
-	position:relative;
-	/* height:500px;
-	width:800px;*/
-	margin:20px auto;
-	overflow:hidden;
-}
-
 
 #content-left{
 	margin-top:20px;
@@ -44,21 +36,23 @@ body{
 .avatar {
 	margin:10px;
 }
-#robot{
+
+/* --- Informations --- */
+#robot {
 	position:absolute;
 	right:80px;
 	bottom:-150px;
 	z-index:2;
 }
 
-#bg{
+#bg {
 	position:absolute;
 	right:0px;
 	top:0px;
 	opacity:0.2;
 	z-index:0;
 }
-#help-text-img{
+#help-text-img {
 	position:absolute;
 	bottom:-50px;
 	right:-40px;
@@ -67,7 +61,7 @@ body{
 	display:none;
 }
 
-#help-text{
+#help-text {
 	position:absolute;
 	bottom:-100px;
 	right:-65px;
@@ -84,6 +78,11 @@ body{
 	height:0px;
 }
 
+.blue {
+	color:#428bca !important;
+}
+
+/* --- Fisheye --- */
 .FisheyeMenu img {
 	margin:2px;
 	border:0;
@@ -103,71 +102,34 @@ body{
 	transition: width 0.2s, height 0.2s;
 }
 
-.blue {
-	color:#428bca !important;
-}
-
-#carousel{
+/* --- Caroussel --- */
+#carousel {
 	width:170px;
 	float:right;
 	margin-right:20px;
 }
 
-.carousel-inner .item img{
+.carousel-inner .item img {
 	width:auto !important;
 	height:140px !important;
 	margin:0 auto;
 }
 
-.carousel-inner .item{
+.carousel-inner .item {
 	text-align:center;
 }
 
-.carousel-control{
+.carousel-control {
 	background-image:none !important;
 }
-#footer {		
-	height: 50px;	
+
+/* --- FOOTER --- */
+#footer {
+	height: 50px;
 	width:100%;
 	text-align: center;
-
 }
 
-.clear{
+.clear {
 	clear:both;
 }
-
-.tableau {
-	border: 3px solid black;
-}
-.tableau th, .tableau td {
-	border: 1px solid black;
-	padding: 18px 18px;
-}
-
-.hautGras {
-	border-top: 3px solid !important;
-}
-.basGras {
-	border-bottom: 3px solid !important;
-}
-.gaucheGras {
-	border-left: 3px solid !important;
-}
-.droiteGras {
-	border-right: 3px solid !important;
-}
-td.noBorderDroite {
-	border-right: 1px solid white !important;
-}
-td.noBorderBas {
-	border-bottom: 1px solid white !important;
-}
-td.noBorderHaut {
-	border-top: 1px solid white !important;
-}
-td.noBorderGauche {
-	border-left: 1px solid white !important;
-}
-
-

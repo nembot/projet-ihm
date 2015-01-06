@@ -5,25 +5,29 @@
 <head>
 	<title>Rasende Roboter</title>
 
+	<!-- Library javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
+	<script type="text/javascript" src="js/flipclock.js"></script>
+
+	<!-- Code javascript projet -->
 	<script src="js/logged.js"></script>
 	<script type="text/javascript" src="js/afficherTableau.js"></script>
 	<script type="text/javascript" src="js/deplacements.js"></script>
 	<script type="text/javascript" src="js/informations.js"></script>
 	<script src="js/ohsnap.js"></script>
 
-	<!--script type="text/javascript" src="js/hammer.min.js"></script-->
-	<script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
-	<script type="text/javascript" src="js/flipclock.js"></script>
-	<link rel="stylesheet" href="css/flipclock.css"/>
-	<link href="css/css_logged.css" rel="stylesheet" />
+	<!-- Library css -->
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/flipclock.css"/>
+
+	<!-- Code css projet -->
+	<link rel="stylesheet" type="text/css" href="css/css_logged.css"/>
 	<link rel="stylesheet" type="text/css" href="css/alertes.css"/>
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
-
 
 	<script type="text/javascript">
 	function initPage() {
@@ -50,7 +54,6 @@
 			</ul>
 		</div>
 
-
 		<input id="login" type="hidden" value="__LOGIN__"/>
 		<input id="idGame" type="hidden" value="__IDGAME__"/>
 		<nav  class="text-centers">
@@ -66,50 +69,47 @@
 					<div id="ohsnap" style="float:right;"></div>
 				</div>
 				<div class="col-md-4">
-					<!--div id="content-left"-->
 					<div id="chrono">
 						<div class="clock" style="margin:2em;"></div>
 						<div class="message"></div>
 					</div>
 					<!--div id="log" style="float:left;width:300px;background-color:whitesmoke;height:100%;">
 					Mouvements :
-					<span id="logText">
+						<span id="logText">
 
-				</span>
-			</div-->
-		</div>
-		<div class="col-md-4">
-			<div id="partie">
-
-				<div id="tablePartie">
+						</span>
+					</div-->
 				</div>
-				<!-- Représentation tableau du jeu -->
-			</div>
+				<div class="col-md-4">
+					<div id="partie">
+
+						<div id="tablePartie">
+						</div>
+						<!-- Représentation tableau du jeu -->
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div id="robot-logged">
+						<img alt='robot' src="img/robot.png" />
+					</div>
+					<div id="help-text-logged" >
+						<p>
+							<span class='blue'> Dans une partie: </span>
+							Les robots se déplacent en ligne droite le long des axes et ne peuvent changer
+							de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.
+							Il est possible de déplacer n’importe quel robot lors d’un tour
+							(y compris s’il n’est pas de la couleur de la cible) mais il n’est
+							pas possible de redéplacer un robot après en avoir déplacer un autre
+							(ex : Il n'est pas possible de déplacer le robot rouge, puis le bleu, puis encore le rouge).
+						</p>
+					</div>
+					<img class="img-responsive" id="bg" alt='background' src="img/bg.png" />
+				</div>
+			</form>
 		</div>
-		<div class="col-md-4">
-			<div id="robot-logged">
-				<img alt='robot' src="img/robot.png" />
-			</div>
-			<div id="help-text-logged" >
-				<p>
-					<span class='blue'> Dans une partie: </span>
-					Les robots se déplacent en ligne droite le long des axes et ne peuvent changer
-					de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.
-					Il est possible de déplacer n’importe quel robot lors d’un tour
-					(y compris s’il n’est pas de la couleur de la cible) mais il n’est
-					pas possible de redéplacer un robot après en avoir déplacer un autre
-					(ex : Il n'est pas possible de déplacer le robot rouge, puis le bleu, puis encore le rouge).
-				</p>
-			</div>
-			<img class="img-responsive" id="bg" alt='background' src="img/bg.png" />
-			<!--div id="content-right" style="float:right;"-->
-			<!--div id="ohsnap" style=""></div-->
-		</div>
-	</form>
-</div>
-</div>
-<footer id ="footer">
-	<small>	Tout droits réservés &copy;</small>
-</footer>
+	</div>
+	<footer id ="footer">
+		<small>	Tout droits réservés &copy;</small>
+	</footer>
 </body>
 </html>
