@@ -19,11 +19,11 @@ body{
 	position:relative;
 	margin: 0 20px;
 	overflow: hidden !important;
-	padding-top: 10px;
+	padding-top:10px;
 }
 
 /* ---- Left ---- */
-#chrono {
+#chronodiv, #nbcoupdiv {
 	width: 350px;
 	display: block;
 	margin-left: auto;
@@ -83,7 +83,7 @@ td.noBorderGauche {
 
 #help-text-logged {
 	position:absolute;
-	bottom:50px;
+	bottom:60px;
 	color:#0f0f0f;
 	text-align:justify;
 	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;

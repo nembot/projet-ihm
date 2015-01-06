@@ -9,12 +9,16 @@ var clock;
 
 $(document).ready(function() {
 	clock = $('.clock').FlipClock({
+		autoStart: false,
 		clockFace: 'MinuteCounter',
 		callbacks: {
 			interval: function() {
 				var time = this.factory.getTime().time;
 			}
 		}
+	});
+	nbcoup = new FlipClock($('.nbcoup'), 0, {
+		clockFace: 'Counter'
 	});
 });
 
@@ -154,7 +158,7 @@ function setRobotByEvent(e) {
   function moveRobot(cell) {
   	//resetCells();
   	var img = getRobotImg(currentRobotColor);
-  		cell.append(img);
+		cell.append(img);
   }
  /*
 	Dont touch :
@@ -322,20 +326,24 @@ function setRobotByEvent(e) {
 		    	updateRobotsPositions();
 		    	var nextCell = $('#i'+l+'_j'+c);
 		    	moveRobot(nextCell);
+					nbcoup.increment();
 		    	//marquerRobot(currentRobotCellId, currentRobotColor);
 					/* Suppression des log */
 		    	//var logString = '<p style="color : '+color+';">'+color+' vers l: '+l+' c : '+c+'</p>'
 		    	//$('#logText').prepend(logString);
 
 		    } else {
-		    	if(response.state == 'INVALID_MOVE')
+		    	if(response.state == 'INVALID_MOVE') {
 		    			ohSnap('Déplacement invalide', 'red');
+							//nbcoup.decrement();
+					}
 		    	if(response.state == 'INVALID_SELECT')
 		    			ohSnap('Veuillez sélectionner un autre robot', 'red');
 
 				currentSolution.pop();
 				currentSolution.pop();
 			}
+			clock.start();
  		}
  		,variables: {
 			login:user
