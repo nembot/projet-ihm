@@ -126,20 +126,7 @@ td.noBorderGauche {
 		height:17px;
 	}
 	#help-text-logged {
-		position:absolute;
 		bottom:88px;
-		color:#0f0f0f;
-		text-align:justify;
-		font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size:12px;
-		background-color: rgba(255, 255, 255, 0.95);
-		border:1px #666 solid;
-		border-radius:7px;
-		padding:8px;
-		opacity:0;
-		height:0px;
-		z-index:2;
-		margin:0 10px 0 0;
 	}
 	.col-md-4 #robot-logged {
 		right:60px;
@@ -165,22 +152,6 @@ td.noBorderGauche {
 		display: block;
 		margin-left: auto;
 		margin-right: auto
-	}
-	#help-text-logged {
-		position:absolute;
-		bottom:88px;
-		color:#0f0f0f;
-		text-align:justify;
-		font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size:12px;
-		background-color: rgba(255, 255, 255, 0.95);
-		border:1px #666 solid;
-		border-radius:7px;
-		padding:8px;
-		opacity:0;
-		height:0px;
-		z-index:2;
-		margin:0 10px 0 0;
 	}
 	.col-md-4 #robot-logged {
 		right:270px;
