@@ -3,6 +3,7 @@ body{
 	width:100%;
 }
 
+/* --- HEADER --- */
 #welcome{
 	text-align:center;
 	margin: 20px auto;
@@ -12,6 +13,7 @@ body{
 	cursor:pointer;
 }
 
+/* --- BODY --- */
 #content-table{
 	border : 2px solid #ababab;
 	border-radius: 10px;
@@ -21,18 +23,99 @@ body{
 	padding-top: 10px;
 }
 
-#content-left{
-	margin-top:20px;
+/* ---- Left ---- */
+#chrono {
+	width: 350px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+/* ---- PLATEAU ---- */
 #tableJeu td {
-	width:25px;
-	height:25px;
+	width:28px;
+	height:28px;
 	padding:0px;
 }
 
+#tableJeu tr td img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hautGras {
+	border-top: 3px solid !important;
+}
+.basGras {
+	border-bottom: 3px solid !important;
+}
+.gaucheGras {
+	border-left: 3px solid !important;
+}
+.droiteGras {
+	border-right: 3px solid !important;
+}
+td.noBorderDroite {
+	border-right: 1px solid white !important;
+}
+td.noBorderBas {
+	border-bottom: 1px solid white !important;
+}
+td.noBorderHaut {
+	border-top: 1px solid white !important;
+}
+td.noBorderGauche {
+	border-left: 1px solid white !important;
+}
+
+/* ---- Right ---- */
+#bg {
+	opacity:0.2;
+	z-index:0;
+}
+
+#robot-logged {
+	position:absolute;
+	right:130px;
+	bottom:-150px;
+	z-index:1;
+}
+
+#help-text-logged {
+	position:absolute;
+	bottom:50px;
+	color:#0f0f0f;
+	text-align:justify;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:12px;
+	background-color: rgba(255, 255, 255, 0.95);
+	border:1px #666 solid;
+	border-radius:7px;
+	padding:8px;
+	opacity:0;
+	height:0px;
+	z-index:2;
+	margin:0 10px 0 0;
+}
+.col-md-4 #help-text-logged {
+	height: 120px !important;
+}
+
+.blue {
+	color:#428bca !important;
+}
+
+/* --- FOOTER --- */
+#footer {
+	height: 50px;
+	width:100%;
+	text-align: center;
+}
+
+/* --- Optimisé sur iPad --- */
+/* ---- CSS appliqué à l'iPad paysage ---- */
 @media (max-width:1024px) {
-	/* CSS appliqué à l'IPAD paysage */
 	#tableJeu td {
 		width:19px;
 		height:19px;
@@ -67,6 +150,7 @@ body{
 	}
 }
 
+/* ---- CSS appliqué à l'iPad portrait ---- */
 @media (max-width:768px) {
 	#tableJeu td {
 		width:42px;
@@ -107,90 +191,6 @@ body{
 	}
 }
 
-#robot-logged{
-	position:absolute;
-	right:130px;
-	bottom:-150px;
-	z-index:1;
-}
-
-#bg{
-	/*position:absolute;*/
-	/*right:0px;
-	top:0px;*/
-	opacity:0.2;
-	z-index:0;
-}
-#help-text-logged{
-	position:absolute;
-	bottom:50px;
-	color:#0f0f0f;
-	text-align:justify;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size:12px;
-	background-color: rgba(255, 255, 255, 0.95);
-	border:1px #666 solid;
-	border-radius:7px;
-	padding:8px;
-	opacity:0;
-	height:0px;
-	z-index:2;
-	margin:0 10px 0 0;
-}
-.col-md-4 #help-text-logged {
-	height: 120px !important;
-}
-
-#chrono {
-	width: 350px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.blue {
-	color:#428bca !important;
-}
-#footer {
-	height: 50px;
-	width:100%;
-	text-align: center;
-
-}
-
-.clear{
+.clear {
 	clear:both;
-}
-
-.tableau {
-	border: 3px solid black;
-}
-.tableau th, .tableau td {
-	border: 1px solid black;
-	padding: 18px 18px;
-}
-
-.hautGras {
-	border-top: 3px solid !important;
-}
-.basGras {
-	border-bottom: 3px solid !important;
-}
-.gaucheGras {
-	border-left: 3px solid !important;
-}
-.droiteGras {
-	border-right: 3px solid !important;
-}
-td.noBorderDroite {
-	border-right: 1px solid white !important;
-}
-td.noBorderBas {
-	border-bottom: 1px solid white !important;
-}
-td.noBorderHaut {
-	border-top: 1px solid white !important;
-}
-td.noBorderGauche {
-	border-left: 1px solid white !important;
 }
