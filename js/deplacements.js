@@ -346,16 +346,6 @@ function setRobotByEvent(e) {
 
  }
 
-
-
-
-
-
-
-
-
-
-
   // retourne id de cellule du robot actuel
 
   function getRobotActuelCellId() {
