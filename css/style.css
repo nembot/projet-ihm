@@ -1,6 +1,5 @@
 body{
-	background-color:#f2f2f2;
-	width:100%;
+	background-color:#f2f2f2 !important;
 }
 
 /* --- HEADER --- */
@@ -17,22 +16,12 @@ body{
 #content{
 	border : 2px solid #ababab;
 	border-radius: 10px;
-	padding: 0 20px;
 	position:relative;
-	height:500px;
-	width:800px;
-	margin:20px auto;
-	overflow:hidden;
+	margin:0 80px;
+	overflow:hidden !important;
+	padding-top: 10px;
 }
 
-#content-left{
-	margin-top:20px;
-	float:left;
-	width:390px;
-}
-#content label{
-	width:200px;
-}
 .avatar {
 	margin:10px;
 }
@@ -40,17 +29,17 @@ body{
 /* --- Informations --- */
 #robot {
 	position:absolute;
-	right:80px;
+	right:230px;
 	bottom:-150px;
 	z-index:2;
 }
 
 #bg {
-	position:absolute;
-	right:0px;
-	top:0px;
 	opacity:0.2;
 	z-index:0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 #help-text-img {
 	position:absolute;
@@ -64,7 +53,7 @@ body{
 #help-text {
 	position:absolute;
 	bottom:-100px;
-	right:-65px;
+	right:-60px;
 	color:#0f0f0f;
 	text-align:justify;
 	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -75,7 +64,7 @@ body{
 	border-radius:7px;
 	padding:8px;
 	opacity:0;
-	height:0px;
+	height:135px;
 }
 
 .blue {
@@ -105,7 +94,6 @@ body{
 /* --- Caroussel --- */
 #carousel {
 	width:170px;
-	float:right;
 	margin-right:20px;
 }
 
@@ -128,6 +116,36 @@ body{
 	height: 50px;
 	width:100%;
 	text-align: center;
+}
+
+/* --- Optimisé sur iPad --- */
+/* ---- CSS appliqué à l'iPad paysage ---- */
+@media (max-width:1024px) {
+	div#robot {
+		right:130px;
+	}
+	#help-text {
+		height:190px !important;
+		bottom:-90px;
+		right:-60px;
+	}
+}
+/* ---- CSS appliqué à l'iPad portrait ---- */
+@media (max-width:768px) {
+	div#robot {
+		width:410px;
+		right:70px;
+	}
+
+	.row div#content {
+		margin:0 30px;
+	}
+
+	#help-text {
+		height:135px !important;
+		bottom:-35px;
+		right:-30px;
+	}
 }
 
 .clear {

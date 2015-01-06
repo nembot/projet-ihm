@@ -1,6 +1,5 @@
 body{
 	background-color:#f2f2f2;
-	width:100%;
 }
 
 /* --- HEADER --- */
@@ -151,7 +150,7 @@ td.noBorderGauche {
 	.col-md-4 #bg {
 		display: block;
 		margin-left: auto;
-		margin-right: auto
+		margin-right: auto;
 	}
 	.col-md-4 #robot-logged {
 		right:270px;
