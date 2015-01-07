@@ -6,6 +6,7 @@ var currentRobotLine;
 var currentRobotColumn;
 var success = false;
 var clock;
+var bclock = false;
 
 $(document).ready(function() {
 	clock = $('.clock').FlipClock({
@@ -314,6 +315,7 @@ function setRobotByEvent(e) {
         success = false;
         if(response.state == 'SUCCESS') {
           ohSnap('Partie terminée, félicitations !', 'green');
+					//alert('Bravo mais un autre joueur peut trouver une solution dans les 60 secondes');
           success = true;
 					clock.stop();
           console.log("success2="+success);
@@ -333,17 +335,20 @@ function setRobotByEvent(e) {
 		    	//$('#logText').prepend(logString);
 
 		    } else {
-		    	if(response.state == 'INVALID_MOVE') {
+		    	if(response.state == 'INVALID_MOVE' && success == false) {
 		    			ohSnap('Déplacement invalide', 'red');
 							//nbcoup.decrement();
 					}
-		    	if(response.state == 'INVALID_SELECT')
+		    	if(response.state == 'INVALID_SELECT' && success == false)
 		    			ohSnap('Veuillez sélectionner un autre robot', 'red');
 
 				currentSolution.pop();
 				currentSolution.pop();
 			}
-			clock.start();
+			if (bclock == false) {
+				clock.start();
+				bclock = true;
+			}
  		}
  		,variables: {
 			login:user
