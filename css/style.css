@@ -13,58 +13,98 @@ body{
 }
 
 /* --- BODY --- */
+/* ---- Loggin ---- */
+.divcenter {
+	text-align: center;
+}
 #content{
 	border : 2px solid #ababab;
 	border-radius: 10px;
 	position:relative;
 	margin:0 80px;
 	overflow:hidden !important;
-	padding-top: 10px;
+	padding: 10px 0;
 }
 
 .avatar {
 	margin:10px;
 }
 
-/* --- Informations --- */
-#robot {
-	position:absolute;
-	right:230px;
-	bottom:-150px;
-	z-index:2;
+/* ---- Logged ---- */
+
+#content-table{
+	border : 2px solid #ababab;
+	border-radius: 10px;
+	position:relative;
+	margin: 0 20px;
+	overflow: hidden !important;
+	padding-top:10px;
 }
 
-#bg {
-	opacity:0.2;
-	z-index:0;
+/* ---- Left ---- */
+#chronodiv, #nbcoupdiv {
+	width: 350px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
-#help-text-img {
-	position:absolute;
-	bottom:-50px;
-	right:-40px;
-	opacity:0;
-	height:0px;
-	display:none;
+
+/* ---- PLATEAU ---- */
+#tableJeu td {
+	width:28px;
+	height:28px;
+	padding:0px;
 }
 
-#help-text {
-	position:absolute;
-	bottom:-100px;
-	right:-60px;
-	color:#0f0f0f;
+#tableJeu tr td img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hautGras {
+	border-top: 3px solid !important;
+}
+.basGras {
+	border-bottom: 3px solid !important;
+}
+.gaucheGras {
+	border-left: 3px solid !important;
+}
+.droiteGras {
+	border-right: 3px solid !important;
+}
+td.noBorderDroite {
+	border-right: 1px solid white !important;
+}
+td.noBorderBas {
+	border-bottom: 1px solid white !important;
+}
+td.noBorderHaut {
+	border-top: 1px solid white !important;
+}
+td.noBorderGauche {
+	border-left: 1px solid white !important;
+}
+
+/* --- Informations --- */
+#robot {
+	position:relative;
+	/*right:230px;*/
+	bottom:-1500px;
+	z-index:2;
+	text-align: center;
+}
+
+.background-rasende {
+	background:url(/img/bg-opac.png) center center no-repeat;
+}
+
+.panel {
+	bottom:-10px;
+}
+.panel-body {
 	text-align:justify;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size:12px;
-	width:160%;
-	background-color: rgba(255, 255, 255, 0.95);
-	border:1px #666 solid;
-	border-radius:7px;
-	padding:8px;
-	opacity:0;
-	height:135px;
 }
 
 .blue {
@@ -92,11 +132,6 @@ body{
 }
 
 /* --- Caroussel --- */
-#carousel {
-	width:170px;
-	margin-right:20px;
-}
-
 .carousel-inner .item img {
 	width:auto !important;
 	height:140px !important;
@@ -121,30 +156,33 @@ body{
 /* --- Optimisé sur iPad --- */
 /* ---- CSS appliqué à l'iPad paysage ---- */
 @media (max-width:1024px) {
-	div#robot {
-		right:130px;
+	#tableJeu td {
+		width:20px;
+		height:20px;
+		font-size: 0;
 	}
-	#help-text {
-		height:190px !important;
-		bottom:-90px;
-		right:-60px;
+	.robot_partie {
+		width:17px;
+		height:17px;
 	}
 }
 /* ---- CSS appliqué à l'iPad portrait ---- */
 @media (max-width:768px) {
-	div#robot {
-		width:410px;
-		right:70px;
+	.divcenter {
+		padding-bottom:20px;
 	}
 
 	.row div#content {
 		margin:0 30px;
 	}
-
-	#help-text {
-		height:135px !important;
-		bottom:-35px;
-		right:-30px;
+	#tableJeu td {
+		width:42px;
+		height:42px;
+		font-size: 0;
+	}
+	.robot_partie {
+		width:40px;
+		height:40px;
 	}
 }
 

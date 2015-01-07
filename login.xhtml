@@ -49,8 +49,8 @@
 						</div>
 						<br/>
 						<label>Avatar</label>
-						<div id="carousel" class="carousel slide" data-ride="pause">
-							
+						<div class="carousel slide" data-ride="pause">
+
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
@@ -94,7 +94,7 @@
 						<input id="id_avatar" name="avatar" type="hidden" value="1"  />
 					</div>
 					<div class="clear" >&nbsp;</div>
-					<div style="width:177px; margin:0 auto;">
+					<div class="divcenter">
 						<input type="submit" class="btn btn-primary" value="Commencer !" />
 						<input type="reset" class="btn btn-primary" value="Reset" />
 					</div>
@@ -103,23 +103,27 @@
 		</div>
 		<!--div class="clear" >&nbsp;</div-->
 		<div class="col-md-6">
-			<div id="robot">
-				<img alt='robot' src="img/robot.png" />
-				<div id="help-text" >
-					<p>
-						<span class='blue'> Robot Ricochet </span> est un jeu composé d’un plateau, de tuiles
-						représentant chacune des cases du plateau, et de
-						pions appelés « robots ».<br/>
-						La partie est décomposée en tours de jeu, un tour consiste
-						à déplacer les robots sur un plateau afin d’en amener sur
-						l’une des case du plateau.<br/>
-						Les robots de déplacent en ligne droite et avancent
-						toujours jusqu’au premier mur qu’ils rencontrent.<br/><br/>
-						<span style='text-align:center'> Vous pouvez y jouer seul, mais aussi avec vos amis…</span>
-					</p>
+			<div class="background-rasende">
+				<div id="robot">
+					<img alt='robot' src="img/robot.png" />
+					<div class="panel panel-default">
+						<div class="panel-body" >
+							<p>
+								<span class='blue'> Robot Ricochet </span> est un jeu composé d’un plateau, de tuiles
+								représentant chacune des cases du plateau, et de
+								pions appelés « robots ».<br/>
+								La partie est décomposée en tours de jeu, un tour consiste
+								à déplacer les robots sur un plateau afin d’en amener sur
+								l’une des case du plateau.<br/>
+								Les robots de déplacent en ligne droite et avancent
+								toujours jusqu’au premier mur qu’ils rencontrent.<br/><br/>
+								<span style='text-align:center'> Vous pouvez y jouer seul, mais aussi avec vos amis…</span>
+							</p>
+						</div>
+					</div>
 				</div>
+				<!-- <img id="bg" alt='background' src="img/bg.png" /> -->
 			</div>
-			<img id="bg" alt='background' src="img/bg.png" />
 		</div>
 	</div>
 </div>

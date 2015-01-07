@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="css/flipclock.css"/>
 
 	<!-- Code css projet -->
-	<link rel="stylesheet" type="text/css" href="css/css_logged.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="css/alertes.css"/>
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -55,7 +55,7 @@
 
 			</ul>
 		</div>
-				
+
 		<input id="login" type="hidden" value="__LOGIN__"/>
 		<input id="idGame" type="hidden" value="__IDGAME__"/>
 		<nav  class="text-centers">
@@ -97,21 +97,24 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div id="robot-logged">
-						<img alt='robot' src="img/robot.png" />
+					<div class="background-rasende">
+						<div id="robot">
+							<img alt='robot' src="img/robot.png" />
+							<div class="panel panel-default">
+								<div class="panel-body" >
+									<p>
+										<span class='blue'> Dans une partie: </span>
+										Les robots se déplacent en ligne droite le long des axes et ne peuvent changer
+										de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.
+										Il est possible de déplacer n’importe quel robot lors d’un tour
+										(y compris s’il n’est pas de la couleur de la cible) mais il n’est
+										pas possible de redéplacer un robot après en avoir déplacer un autre
+										(ex : Il n'est pas possible de déplacer le robot rouge, puis le bleu, puis encore le rouge).
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div id="help-text-logged" >
-						<p>
-							<span class='blue'> Dans une partie: </span>
-							Les robots se déplacent en ligne droite le long des axes et ne peuvent changer
-							de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.
-							Il est possible de déplacer n’importe quel robot lors d’un tour
-							(y compris s’il n’est pas de la couleur de la cible) mais il n’est
-							pas possible de redéplacer un robot après en avoir déplacer un autre
-							(ex : Il n'est pas possible de déplacer le robot rouge, puis le bleu, puis encore le rouge).
-						</p>
-					</div>
-					<img class="img-responsive" id="bg" alt='background' src="img/bg.png" />
 				</div>
 			</form>
 		</div>
