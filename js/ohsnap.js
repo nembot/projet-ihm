@@ -22,8 +22,14 @@ function ohSnap(text, color, icon) {
     icon_markup = "<span class='" + icon + "'></span> ";  
   }
   
+  var alt =(color=='green' ? 'Ganger' : 'Perdu'),
+   img =(color=='green' ? 'win' : 'loose');
+   
+  var imgHTML ='' 
+   if (color=='green') imgHTML = "<img height='130' width='85' alt='"+alt+"' src='img/"+img+".png' /> ";
+   
   // Generate the HTML
-  var html = $('<div class="alert alert-' + color + '">' + icon_markup + text + '</div>');
+  var html = $('<div class="alert alert-' + color + '">' + icon_markup + text + imgHTML + '</div>');
 
   // Append the label to the container
   $container.append(html);
