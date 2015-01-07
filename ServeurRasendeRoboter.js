@@ -348,11 +348,13 @@ var RRServer = {
 								  return res.end('Error loading logged.xhtml');}
 						res.writeHead(200, {'Content-Type': 'application/xhtml+xml; charset=utf-8'});
 						var title = req.body.idGame
-						  , state = '';
+						  , state = ''
+						  , avatar = req.body.avatar;
 						if(RRServer.games.list[req.body.idGame].Terminated) {state += ' est terminée';}
 						res.write( data.toString().replace(/__LOGIN__/g	, req.body.login)
 												  .replace(/__IDGAME__/g, title)
 												  .replace(/__STATE__/g, state)
+												  .replace(/__AVATAR__/g,avatar)
 								 );
 						res.end();
 					  });

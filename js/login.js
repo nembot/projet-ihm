@@ -1,20 +1,28 @@
-
-
 $( document ).ready(function() {
 	$('.carousel').carousel('pause');
 });
 
-$('#carousel').on('slide.bs.carousel', function (event) {
-	var dir=event.direction;
-	var inp=document.getElementById("id_avatar");
-	if (dir=="left") inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
-	if (dir=="right")  inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
-})
+// $('#carousel').on('slide.bs.carousel', function (event) {
+	// var dir=event.direction;
+	// var inp=document.getElementById("id_avatar");
+	// if (dir=="left") inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
+	// if (dir=="right")  inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
+// })
 
-function getAvatar(){
-	return $("#id_avatar").val();
+function nextAvatar(){
+
+	
+	var inp=document.getElementById("id_avatar");
+	inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
+
 }
 
+function prevAvatar(){
+
+	var inp=document.getElementById("id_avatar");
+	inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
+	}
+	
 function init() {
 	// Connect to the SocketIO server to retrieve ongoing games.
 	socket = io.connect();
