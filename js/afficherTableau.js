@@ -3,7 +3,7 @@ var game = {};
 // 1) on ramène le tableau dynamiquement par le nom de partie en cours
 // pour l'instant elle est fixe sur la patie test1.
 var idG;
-var user;
+var user = {};
 
 var board = {};
 var robots = {};
@@ -18,7 +18,7 @@ var partie;
   */
   function showGame(idDiv, idGame) {
     idG = idGame;
-    user = document.getElementById('login').value;
+    user.id = document.getElementById('login').value;
     XHR( "GET"
        , "/"+  idGame
        ,   {
@@ -32,11 +32,11 @@ var partie;
               if(board != null && robots != null && target != null)
                 dessinerTableau(idDiv, idGame);
                 try {
-                  initDeplacements();  
+                  initDeplacements();
                 } catch(e){
 
                 }
-                
+
             }
      });
   }
@@ -51,9 +51,9 @@ function dessinerTableau(idDiv, idGame) {
 
 
 // dessigner grille :
-/* 
-  modification : 
-  J'ai ajouté un id pour la cible du dessin 
+/*
+  modification :
+  J'ai ajouté un id pour la cible du dessin
 */
 
 function dessinerGrille(id) {

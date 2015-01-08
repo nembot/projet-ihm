@@ -10,7 +10,7 @@ var bclock = false;
 
 $(document).ready(function() {
 	clock = $('.clock').FlipClock({
-		autoStart: false,
+		autoStart: true,
 		clockFace: 'MinuteCounter',
 		callbacks: {
 			interval: function() {
@@ -146,7 +146,7 @@ function setRobotByEvent(e) {
 
  function getLineAndColumnFromId(id) {
  	var coordinates = {};
- 	
+
  	var lineStr = id.split('_')[0];
  	var colStr = id.split('_')[1];
  	var line = parseInt(lineStr.replace("i",""));
@@ -318,6 +318,7 @@ function setRobotByEvent(e) {
 					//alert('Bravo mais un autre joueur peut trouver une solution dans les 60 secondes');
           success = true;
 					clock.stop();
+					user.nbcoup = nbcoup.getTime().time+1;
           console.log("success2="+success);
         }
         resetCells();
@@ -346,12 +347,12 @@ function setRobotByEvent(e) {
 				currentSolution.pop();
 			}
 			if (bclock == false) {
-				clock.start();
+				//clock.start();
 				bclock = true;
 			}
  		}
  		,variables: {
-			login:user
+			login:user.id
 			, idGame:idG
 			, proposition: JSON.stringify(currentSolution)
  		}
