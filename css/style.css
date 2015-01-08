@@ -30,7 +30,7 @@ body{
 	margin:10px;
 }
 
-/* ----- Vu ----- */
+/* ----- Vu plateau ----- */
 .hautGras {
 	border-top: 3px solid !important;
 }
@@ -52,7 +52,7 @@ body{
 	position:relative;
 	margin: 0 20px;
 	overflow: hidden !important;
-	padding-top:10px;
+	padding: 10px 0;
 }
 
 /* ---- Left ---- */
@@ -110,7 +110,9 @@ td.noBorderGauche {
 .flip-clock-dot{
 	background:#336633;
 }
-
+#btnabandonner {
+	margin-bottom:10px;
+}
 
 /* --- Informations --- */
 #robot {
@@ -123,6 +125,10 @@ td.noBorderGauche {
 
 .background-rasende {
 	background:url(/img/bg-opac.png) center center no-repeat;
+}
+
+#imgrobot {
+	height:190px;
 }
 
 .panel {
@@ -188,6 +194,9 @@ td.noBorderGauche {
 		width:20px;
 		height:20px;
 	}
+	#fisheye-div {
+		display:none !important;
+	}
 }
 @media (max-width:1130px) {
 	#tableJeu td {
@@ -198,6 +207,9 @@ td.noBorderGauche {
 	.robot_partie {
 		width:19px;
 		height:19px;
+	}
+	#fisheye-div {
+		display:none !important;
 	}
 }
 
@@ -212,6 +224,9 @@ td.noBorderGauche {
 	.robot_partie {
 		width:17px;
 		height:17px;
+	}
+	#fisheye-div {
+		display:none !important;
 	}
 }
 /* ---- CSS appliqué à l'iPad portrait ---- */
@@ -231,6 +246,9 @@ td.noBorderGauche {
 	.robot_partie {
 		width:40px;
 		height:40px;
+	}
+	#fisheye-div {
+		display:none !important;
 	}
 }
 

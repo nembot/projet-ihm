@@ -81,7 +81,7 @@
 							<span>Nombre de coup</span>
 							<div class="nbcoup" style="margin:2em;"></div>
 						</div>
-						<a href="./" class="btn btn-danger btn-block" role="button">Abandonner la partie<img src="img/loose.png" height="60"/></a>
+						<a id="btnabandonner" href="./" class="btn btn-danger btn-block" role="button">Abandonner la partie<img src="img/loose.png" height="60"/></a>
 					<!--div id="log" style="float:left;width:300px;background-color:whitesmoke;height:100%;">
 					Mouvements :
 						<span id="logText">
@@ -100,11 +100,11 @@
 				<div class="col-md-4">
 					<div class="background-rasende">
 						<div id="robot">
-							<img alt='robot' src="img/robot.png" />
+							<img id="imgrobot" alt='robot' src="img/robot.png" />
 							<div class="panel panel-default">
 								<div class="panel-body" >
 									<p>
-										<span class='blue'> Dans une partie: </span>
+										<span class='blue'> Dans une partie : </span>
 										Les robots se déplacent en ligne droite le long des axes et ne peuvent changer
 										de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.
 										Il est possible de déplacer n’importe quel robot lors d’un tour
