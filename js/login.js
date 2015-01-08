@@ -1,3 +1,21 @@
+/*
+	On a besoin d'XHR dans le login aussi. 
+*/
+
+var XHR = function(method, ad, params) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = params.onload || null;
+	xhr.open(method, ad);
+	if(method == 'POST') {xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');}
+	var variables   = params.variables || null
+	  , str			= '';
+	for(var i in variables) {
+		 str += i + '=' + encodeURIComponent( variables[i] ) + '&';
+		}
+	xhr.send( str );
+}
+
+
 $( document ).ready(function() {
 	$('.carousel').carousel('pause');
 });
@@ -38,6 +56,7 @@ function init() {
 		for(p in data.gamesList) {
 			//var li = document.createElement('li');
 			var img = document.createElement('img');
+			// la classe de l'image : 
 			var a = document.createElement('a');
 			var source = '../img/image1.jpg';
 			//ul.appendChild( li );
@@ -46,8 +65,11 @@ function init() {
 			a.appendChild( img );
 			img.setAttribute('src', source);
 			img.setAttribute('alt',data.gamesList[p]);
+			img.setAttribute('id',data.gamesList[p]);
+			
 			//a.appendChild( document.createTextNode( data.gamesList[p] ) );
 			a.setAttribute('href', '#');
+			a.className = "fisheye-image";
 			a.setAttribute('id', data.gamesList[p]);
 			a.setAttribute('onclick', 'putName("'+data.gamesList[p]+'")');
 		}

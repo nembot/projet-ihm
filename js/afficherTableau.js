@@ -12,11 +12,15 @@ var target = {};
 var partie;
 
 
-  function showGame() {
-    idG = document.getElementById('idGame').value;
+
+  /*
+    Id c'est l'identifiant du div dans lequel on dessine la grille
+  */
+  function showGame(idDiv, idGame) {
+    idG = idGame;
     user = document.getElementById('login').value;
     XHR( "GET"
-       , "/"+idG
+       , "/"+idGame
        ,   {
             onload : function() {
               game = JSON.parse(this.response);
@@ -26,7 +30,7 @@ var partie;
               console.log(game);
 
               if(board != null && robots != null && target != null)
-                dessinerTableau();
+                dessinerTableau(idDiv, idGame);
                 initDeplacements();
             }
      });
@@ -61,18 +65,21 @@ socket.on('participants', function(data) {
 
 
 
-function dessinerTableau() {
-  dessinerGrille();
+function dessinerTableau(idDiv, idGame) {
+  dessinerGrille(idDiv);
   dessinerCible();
   dessinerRobots();
-
 }
 
 
 // dessigner grille :
+/* 
+  modification : 
+  J'ai ajouté un id pour la cible du dessin 
+*/
 
-function dessinerGrille() {
-  partie = document.getElementById('tablePartie');
+function dessinerGrille(id) {
+  partie = document.getElementById(id);
   if(partie) {
     var tbl=document.createElement('table');
     tbl.id = "tableJeu";
@@ -127,7 +134,7 @@ function dessinerGrille() {
     tbl.appendChild(tbdy);
     partie.appendChild(tbl)
   } else {
-    console.log('partie is not defined');
+    console.log('partie non définie');
   }
 }
 
@@ -143,7 +150,7 @@ function dessinerCible() {
         cell.style.background=" url('/img/target_"+t+".png') no-repeat right top";
         cell.style.backgroundSize ="100% 100%";
       }  else {
-        console.log('not found target !');
+        console.log('cible non trouvée ..');
       }
     }
 }

@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,6 +18,8 @@
 	<!-- Code javascript projet -->
 	<script src="js/login.js"></script>
 	<script type="text/javascript" src="js/informations.js"></script>
+	<script type="text/javascript" src="js/afficherTableau.js"></script>
+	<script type="text/javascript" src="js/fisheye.js"></script>
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
 </head>
@@ -31,6 +32,9 @@
 	</header>
 	<div class="row">
 		<div id="content">
+			<!-- Ce div sert dans le fish-eye -->
+				<div class="col-md-12" id="fisheye-div" style="display:bloc;width:500px; height:100px;float:right;">FISHEYE</div>
+			<!-- fin div fisheye -->
 			<div class="col-md-6">
 				<form name="form1" method="post" action="" id="nouvellePartie" onsubmit="return verif_champ();">
 					<!--div id="content-left"-->
@@ -38,6 +42,7 @@
 						<!--<ul id="lesParties">-->
 
 						<div id="FisheyeMenu" class="FisheyeMenu"></div>
+						
 						<!--</ul>-->
 						<br/>
 						<div id="divIdGame" class="form-group">
@@ -123,8 +128,11 @@
 		</div>
 	</div>
 </div>
+
+
 <footer id ="footer">
 	<small>	Tout droits réservés &copy;</small>
 </footer>
+
 </body>
 </html>

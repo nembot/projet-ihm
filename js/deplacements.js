@@ -146,7 +146,7 @@ function setRobotByEvent(e) {
 
  function getLineAndColumnFromId(id) {
  	var coordinates = {};
-
+ 	
  	var lineStr = id.split('_')[0];
  	var colStr = id.split('_')[1];
  	var line = parseInt(lineStr.replace("i",""));

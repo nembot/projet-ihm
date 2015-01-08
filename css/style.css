@@ -151,3 +151,16 @@ body{
 .clear {
 	clear:both;
 }
+
+.hautGras {
+	border-top: 3px solid !important;
+}
+.basGras {
+	border-bottom: 3px solid !important;
+}
+.gaucheGras {
+	border-left: 3px solid !important;
+}
+.droiteGras {
+	border-right: 3px solid !important;
+}
