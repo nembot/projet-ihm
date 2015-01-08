@@ -6,16 +6,16 @@ function info()
 function show_info()
 {
 	$("#robot").animate({
-		bottom:'170px',
+		bottom:'20px',
 	},"600");
 	$("#robot").animate({
-		bottom:'140px',
+		bottom:'-10px',
 	},"400");
 	$("#robot").animate({
-		bottom:'160px',
+		bottom:'10px',
 	},"400");
 	$("#robot").animate({
-		bottom:'150px',
+		bottom:'0px',
 	},"400");
 
 	$("#robot-logged").animate({
@@ -31,12 +31,6 @@ function show_info()
 		bottom:'80px',
 	},"400");
 
-
-	$("#help-text").animate({
-		opacity:'1',
-		height:"200px",
-	},"slow");
-
 	$("#help-text-logged").animate({
 		opacity:'1',
 		height:"170px",
@@ -46,10 +40,10 @@ function show_info()
 function hide_info()
 {
 	$("#robot").animate({
-		bottom:'170px',
+		bottom:'20px',
 	});
 	$("#robot").animate({
-		bottom:'-150px',
+		bottom:'-1000px',
 	});
 
 	$("#robot-logged").animate({
@@ -59,10 +53,6 @@ function hide_info()
 		bottom:'-150px',
 	});
 
-	$("#help-text").animate({
-		opacity:'0',
-		height:"0px",
-	},"slow");
 	$("#help-text-logged").animate({
 		opacity:'0',
 		height:"0px",
