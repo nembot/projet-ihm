@@ -153,6 +153,29 @@ td.noBorderGauche {
 	text-align: center;
 }
 
+@media (max-width:1400px) {
+	#tableJeu td {
+		width:23px;
+		height:23px;
+		font-size: 0;
+	}
+	.robot_partie {
+		width:20px;
+		height:20px;
+	}
+}
+@media (max-width:1130px) {
+	#tableJeu td {
+		width:21px;
+		height:21px;
+		font-size: 0;
+	}
+	.robot_partie {
+		width:19px;
+		height:19px;
+	}
+}
+
 /* --- Optimisé sur iPad --- */
 /* ---- CSS appliqué à l'iPad paysage ---- */
 @media (max-width:1024px) {
