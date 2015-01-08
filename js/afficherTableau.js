@@ -31,7 +31,12 @@ var partie;
 
               if(board != null && robots != null && target != null)
                 dessinerTableau(idDiv, idGame);
-                initDeplacements();
+                try {
+                  initDeplacements();  
+                } catch(e){
+                  
+                }
+                
             }
      });
   }

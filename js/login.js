@@ -46,6 +46,7 @@ function init() {
 	socket = io.connect();
 	socket.on('gamesList', function(data) {
 		var rejoindreUnePartie = document.getElementById('rejoindrepartie');
+		
 		//var ul = document.getElementById('lesParties');
 		var fisheye = document.getElementById('FisheyeMenu');
 		//ul.innerHTML='';
@@ -53,16 +54,26 @@ function init() {
 		if (data.gamesList.length > 0) {
 			rejoindreUnePartie.innerHTML='Rejoindre une partie :';
 		}
+		var counter = 0;
 		for(p in data.gamesList) {
+			counter++;
+
 			//var li = document.createElement('li');
 			var img = document.createElement('img');
 			// la classe de l'image : 
 			var a = document.createElement('a');
-			var source = '../img/image1.jpg';
+			var source = '../img/image'+counter+'.png';
+			
 			//ul.appendChild( li );
 			//li.appendChild( a );
 			fisheye.appendChild( a );
+			
+			var textPartie = document.createElement('p');
+			textPartie.innerHTML = data.gamesList[p];
+
+
 			a.appendChild( img );
+			
 			img.setAttribute('src', source);
 			img.setAttribute('alt',data.gamesList[p]);
 			img.setAttribute('id',data.gamesList[p]);
@@ -72,6 +83,8 @@ function init() {
 			a.className = "fisheye-image";
 			a.setAttribute('id', data.gamesList[p]);
 			a.setAttribute('onclick', 'putName("'+data.gamesList[p]+'")');
+			a.appendChild(textPartie);
+			
 		}
 		if (data.gamesList.length == 0) {
 			rejoindreUnePartie.innerHTML='Aucune partie créée';

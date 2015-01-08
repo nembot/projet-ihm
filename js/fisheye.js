@@ -1,18 +1,3 @@
-/*
- $('document').ready(function() {
- 	alert('rr');
-$(".fisheye-image").click(
-
-        function () {
-            $("#fisheye-div").fadeIn();
-            alert('cc');
-        },
-        function () {
-            $("#fisheye-div").fadeOut();
-        }
-    );
- });
- */
  $('document').ready(function() {
 	$('#FisheyeMenu').on('mouseover', '.fisheye-image', function(e) {
 	  $("#fisheye-div").fadeIn();
@@ -25,6 +10,5 @@ $(".fisheye-image").click(
 	$('#FisheyeMenu').on('mouseout', '.fisheye-image', function() {
 	    $('#fisheye-div').empty();
 	    $("#fisheye-div").fadeOut();      
-	}); 
-	
+	});
 }); 
