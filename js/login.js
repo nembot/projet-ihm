@@ -20,16 +20,8 @@ $( document ).ready(function() {
 	$('.carousel').carousel('pause');
 });
 
-// $('#carousel').on('slide.bs.carousel', function (event) {
-	// var dir=event.direction;
-	// var inp=document.getElementById("id_avatar");
-	// if (dir=="left") inp.value=(inp.value=="9" ? "1" : parseFloat(inp.value) + 1);
-	// if (dir=="right")  inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
-// })
-
 function nextAvatar(){
 
-	
 	var inp=document.getElementById("id_avatar");
 	inp.value=(inp.value=="1" ? "9" : parseFloat(inp.value) - 1);
 
@@ -49,6 +41,10 @@ function init() {
 		
 		//var ul = document.getElementById('lesParties');
 		var fisheye = document.getElementById('FisheyeMenu');
+		fisheye.style.display = 'inline-block';
+		fisheye.style.width = '100%';
+		fisheye.style.marginBottom = '15px';
+		
 		//ul.innerHTML='';
 		fisheye.innerHTML='';
 		if (data.gamesList.length > 0) {
@@ -58,6 +54,11 @@ function init() {
 		for(p in data.gamesList) {
 			counter++;
 
+			var partieDiv = document.createElement('div');
+			partieDiv.style.width = '60px';
+			partieDiv.style.textAlign = 'center';
+			partieDiv.style.display = 'inline-block';
+		
 			//var li = document.createElement('li');
 			var img = document.createElement('img');
 			// la classe de l'image : 
@@ -66,9 +67,10 @@ function init() {
 			
 			//ul.appendChild( li );
 			//li.appendChild( a );
-			fisheye.appendChild( a );
+			fisheye.appendChild(partieDiv);
+			partieDiv.appendChild( a );
 			
-			var textPartie = document.createElement('p');
+			var textPartie = document.createElement('span');
 			textPartie.innerHTML = data.gamesList[p];
 
 
@@ -81,7 +83,7 @@ function init() {
 			//a.appendChild( document.createTextNode( data.gamesList[p] ) );
 			a.setAttribute('href', '#');
 			a.className = "fisheye-image";
-			a.setAttribute('id', data.gamesList[p]);
+			a.setAttribute('id', ''+data.gamesList[p]+'');
 			a.setAttribute('onclick', 'putName("'+data.gamesList[p]+'")');
 			a.appendChild(textPartie);
 			

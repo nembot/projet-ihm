@@ -20,7 +20,7 @@ var partie;
     idG = idGame;
     user = document.getElementById('login').value;
     XHR( "GET"
-       , "/"+idGame
+       , "/"+  idGame
        ,   {
             onload : function() {
               game = JSON.parse(this.response);
@@ -34,41 +34,14 @@ var partie;
                 try {
                   initDeplacements();  
                 } catch(e){
-                  
+
                 }
                 
             }
      });
   }
 
-/*
-XHR( "POST"
-     , "/"
-     ,   {
-          onload : function() {
-            console.log(this.response);
-          }
-   });
-*/
-
-// connection au socket :
-/*
-socket = io.connect();
-socket.on('participants', function(data) {
-     console.log(data);
-     var ul = document.getElementById('lesParticipants');
-     ul.innerHTML='';
-      for(p in data.participants) {
-       var li = document.createElement('li');
-       ul.appendChild( li );
-       li.appendChild( document.createTextNode( data.participants[p] ) );
-      }
-    });
-*/
 // fonction qui permet de dessiner le tableau  :
-
-
-
 
 function dessinerTableau(idDiv, idGame) {
   dessinerGrille(idDiv);
@@ -183,8 +156,6 @@ function dessinerRobots() {
       if(cell) {
         var robotImg = getRobotImg(color);
         cell.appendChild(robotImg);
-        //cell.style.background=" url('/img/robot_"+color+".png') no-repeat right top";
-        //cell.style.backgroundSize ="100% 100%";
       } else {
         console.log('not found robot !');
       }
