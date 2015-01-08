@@ -30,6 +30,20 @@ body{
 	margin:10px;
 }
 
+/* ----- Vu ----- */
+.hautGras {
+	border-top: 3px solid !important;
+}
+.basGras {
+	border-bottom: 3px solid !important;
+}
+.gaucheGras {
+	border-left: 3px solid !important;
+}
+.droiteGras {
+	border-right: 3px solid !important;
+}
+
 /* ---- Logged ---- */
 
 #content-table{
@@ -86,6 +100,17 @@ td.noBorderHaut {
 td.noBorderGauche {
 	border-left: 1px solid white !important;
 }
+.flip-clock-wrapper .flip{
+	box-shadow : 0 2px 5px rgba(245,19,19,0.7);
+}
+.flip-clock-wrapper ul li a div div.inn{
+	background-color:#669966;
+	color:white;
+}
+.flip-clock-dot{
+	background:#336633;
+}
+
 
 /* --- Informations --- */
 #robot {
@@ -211,27 +236,4 @@ td.noBorderGauche {
 
 .clear {
 	clear:both;
-}
-
-.hautGras {
-	border-top: 3px solid !important;
-}
-.basGras {
-	border-bottom: 3px solid !important;
-}
-.gaucheGras {
-	border-left: 3px solid !important;
-}
-.droiteGras {
-	border-right: 3px solid !important;
-}
-.flip-clock-wrapper .flip{
-	box-shadow : 0 2px 5px rgba(245,19,19,0.7);
-}
-.flip-clock-wrapper ul li a div div.inn{
-	background-color:#669966;
-	color:white;
-}
-.flip-clock-dot{
-	background:#336633;
 }
