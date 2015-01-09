@@ -57,8 +57,7 @@ function showFinalCountDown (socketF) {
 	socketF.on('FinalCountDown'	, function(data) {
 		 var ms   = data.FinalCountDown;
 		console.log("ms="+ms);
-		clock.setCountdown(true);
-		clock.setTime(60);
+
 		 console.log("FinalCountDown : " + ms);
 		});
 }
@@ -83,9 +82,13 @@ function showSolutions (socketF, ifGagne) {
 		for (var i=0; i <= data.solutions.length; i++) {
 			var calculCoup = data.solutions[i].proposition.length / 2;
 			if (ifGagne == false) {
-				ohSnap(data.solutions[i].player+" a trouvé une solution avec "+calculCoup+" coups.<br/>Vous avez 60 secondes pour trouver une meilleure solution.", "orange");
-				clock.start();
-				ifGagne = true;
+				if (data.solutions[i].player != user.id) {
+					ohSnap(data.solutions[i].player+" a trouvé une solution avec "+calculCoup+" coups.<br/>Vous avez 60 secondes pour trouver une meilleure solution.", "orange");
+					clock.setCountdown(true);
+					clock.setTime(60);
+					clock.start();
+					ifGagne = true;
+				}
 			}
 			// if (minCoup(data.solutions)) {
 			//
